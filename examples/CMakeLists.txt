@@ -1,0 +1,8 @@
+link_libraries(macro)
+
+add_executable(click click.cpp)
+add_executable(move move.cpp)
+add_executable(position position.cpp)
+add_executable(precise_sleep precise_sleep.cpp)
+add_executable(scroll scroll.cpp)
+add_executable(type type.cpp)
