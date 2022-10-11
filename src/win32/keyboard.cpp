@@ -7,44 +7,6 @@
 namespace Macro {
 namespace Keyboard {
 
-int MapToOSKey(Key key) {
-    if (key >= BACKSPACE && key <= TAB) {
-        return key - BACKSPACE + 0x08;
-    } else if (key >= ENTER && key <= ENTER) {
-        return key - ENTER + 0x0D;
-    } else if (key >= SHIFT && key <= CAPS_LOCK) {
-        return key - SHIFT + 0x10;
-    } else if (key >= ESCAPE && key <= ESCAPE) {
-        return key - ESCAPE + 0x1B;
-    } else if (key >= SPACE && key <= HELP) {
-        return key - SPACE + 0x20;
-    } else if (key >= ZERO && key <= NINE) {
-        return key - ZERO + 0x30;
-    } else if (key >= A && key <= Z) {
-        return key - A + 0x41;
-    } else if (key >= NUM0 && key <= NUM9) {
-        return key - NUM0 + 0x60;
-    } else if (key >= NUMPAD0 && key <= NUMPAD9) {
-        return key - NUMPAD0 + 0x60;
-    } else if (key >= MULTIPLY && key <= DIVIDE) {
-        return key - MULTIPLY + 0x6A;
-    } else if (key >= F1 && key <= F12) {
-        return key - F1 + 0x70;
-    } else if (key >= LSHIFT && key <= RALT) {
-        return key - LSHIFT + 0xA0;
-    } else if (key >= LSUPER && key <= RSUPER) {
-        return key - LSUPER + 0x5B;
-    } else if (key >= COLON && key <= TILDE) {
-        return key - COLON + 0xBA;
-    } else if (key >= LEFT_BRACKET && key <= OEM_8) {
-        return key - LEFT_BRACKET + 0xDB;
-    } else if (key >= OEM_102 && key <= OEM_102) {
-        return key - OEM_102 + 0xE2;
-    } else {
-        throw std::runtime_error(std::string("Unrecognized key: ") + std::to_string(key));
-    }
-}
-
 #ifndef VK_KEY_0
 #define VK_KEY_0 0x30
 #endif // VK_KEY_0
@@ -59,46 +21,90 @@ int MapToOSKey(Key key) {
 #define VK_KEY_Z 0x5A
 #endif // VK_KEY_Z
 
-Key OSKeyToKey(int osKey) {
+int MapToOSKey(Key key) {
+    int vkCode;
+
+    if (key >= BACKSPACE && key <= TAB) {
+        vkCode = key - BACKSPACE + VK_BACK;
+    } else if (key >= ENTER && key <= ENTER) {
+        vkCode = key - ENTER + VK_RETURN;
+    } else if (key >= SHIFT && key <= CAPS_LOCK) {
+        vkCode = key - SHIFT + VK_SHIFT;
+    } else if (key >= ESCAPE && key <= ESCAPE) {
+        vkCode = key - ESCAPE + VK_ESCAPE;
+    } else if (key >= SPACE && key <= HELP) {
+        vkCode = key - SPACE + VK_SPACE;
+    } else if (key >= ZERO && key <= NINE) {
+        vkCode = key - ZERO + VK_KEY_0;
+    } else if (key >= A && key <= Z) {
+        vkCode = key - A + VK_KEY_A;
+    } else if (key >= NUMPAD0 && key <= NUMPAD9) {
+        vkCode = key - NUMPAD0 + VK_NUMPAD0;
+    } else if (key >= MULTIPLY && key <= DIVIDE) {
+        vkCode = key - MULTIPLY + VK_MULTIPLY;
+    } else if (key >= F1 && key <= F12) {
+        vkCode = key - F1 + VK_F1;
+    } else if (key >= LSHIFT && key <= RALT) {
+        vkCode = key - LSHIFT + VK_LSHIFT;
+    } else if (key >= LSUPER && key <= RSUPER) {
+        vkCode = key - LSUPER + VK_LWIN;
+    } else if (key >= COLON && key <= TILDE) {
+        vkCode = key - COLON + VK_OEM_1;
+    } else if (key >= LEFT_BRACKET && key <= OEM_8) {
+        vkCode = key - LEFT_BRACKET + VK_OEM_4;
+    } else if (key >= OEM_102 && key <= OEM_102) {
+        vkCode = key - OEM_102 + VK_OEM_102;
+    } else {
+        throw std::runtime_error(std::string("Unrecognized key (MapToOSKey): ") + std::to_string(key));
+    }
+
+    return vkCode;
+}
+
+Key MapFromOSKey(int osKey) {
     Key key;
-    if (osKey >= VK_KEY_0 && osKey <= VK_KEY_9) {
+
+    if (osKey >= VK_BACK && osKey <= VK_TAB) {
+        key = static_cast<Key>(osKey - VK_BACK + BACKSPACE);
+    } else if (osKey >= VK_RETURN && osKey <= VK_RETURN) {
+        key = static_cast<Key>(osKey - VK_RETURN + ENTER);
+    } else if (osKey >= VK_SHIFT && osKey <= VK_CAPITAL) {
+        key = static_cast<Key>(osKey - VK_SHIFT + SHIFT);
+    } else if (osKey >= VK_ESCAPE && osKey <= VK_ESCAPE) {
+        key = static_cast<Key>(osKey - VK_ESCAPE + ESCAPE);
+    } else if (osKey >= VK_SPACE && osKey <= VK_HELP) {
+        key = static_cast<Key>(osKey - VK_SPACE + SPACE);
+    } else if (osKey >= VK_KEY_0 && osKey <= VK_KEY_9) {
         key = static_cast<Key>(osKey - VK_KEY_0 + ZERO);
     } else if (osKey >= VK_KEY_A && osKey <= VK_KEY_Z) {
         key = static_cast<Key>(osKey - VK_KEY_A + A);
-    } else if (osKey == VK_SPACE) {
-        key = SPACE;
-    } else if (osKey == VK_OEM_3) {
-        key = TILDE;
-    } else if (osKey == VK_OEM_MINUS) {
-        key = MINUS;
-    } else if (osKey == VK_OEM_PLUS) {
-        key = PLUS;
-    } else if (osKey == VK_OEM_4) {
-        key = LEFT_BRACKET;
-    } else if (osKey == VK_OEM_6) {
-        key = RIGHT_BRACKET;
-    } else if (osKey == VK_OEM_5) {
-        key = BACKSLASH;
-    } else if (osKey == VK_OEM_1) {
-        key = COLON;
-    } else if (osKey == VK_OEM_7) {
-        key = QUOTE;
-    } else if (osKey == VK_OEM_COMMA) {
-        key = COMMA;
-    } else if (osKey == VK_OEM_PERIOD) {
-        key = PERIOD;
-    } else if (osKey == VK_OEM_2) {
-        key = SLASH;
+    } else if (osKey >= VK_NUMPAD0 && osKey <= VK_NUMPAD9) {
+        key = static_cast<Key>(osKey - VK_NUMPAD0 + NUMPAD0);
+    } else if (osKey >= VK_MULTIPLY && osKey <= VK_DIVIDE) {
+        key = static_cast<Key>(osKey - VK_MULTIPLY + MULTIPLY);
+    } else if (osKey >= VK_F1 && osKey <= VK_F12) {
+        key = static_cast<Key>(osKey - VK_F1 + F1);
+    } else if (osKey >= VK_LSHIFT && osKey <= VK_RMENU) {
+        key = static_cast<Key>(osKey - VK_LSHIFT + LSHIFT);
+    } else if (osKey >= VK_LWIN && osKey <= VK_RWIN) {
+        key = static_cast<Key>(osKey - VK_LWIN + LSUPER);
+    } else if (osKey >= VK_OEM_1 && osKey <= VK_OEM_3) {
+        key = static_cast<Key>(osKey - VK_OEM_1 + COLON);
+    } else if (osKey >= VK_OEM_4 && osKey <= VK_OEM_8) {
+        key = static_cast<Key>(osKey - VK_OEM_4 + LEFT_BRACKET);
+    } else if (osKey >= VK_OEM_102 && osKey <= VK_OEM_102) {
+        key = static_cast<Key>(osKey - VK_OEM_102 + OEM_102);
     } else {
-        throw std::runtime_error(std::string("Unsupported osKey: ") + std::to_string(osKey));
+        throw std::runtime_error(std::string("Unrecognized key (MapFromOSKey): ") + std::to_string(osKey));
     }
+
     return key;
 }
 
 Combo MapFromChar(char c) {
     short result = VkKeyScanA(c);
     int vkCode = result & 0xFF, shift = result >> 8;
-    Key key = OSKeyToKey(vkCode);
+    Key key = MapFromOSKey(vkCode);
     return Combo{key, static_cast<bool>(shift & 0x1), static_cast<bool>(shift & 0x2), static_cast<bool>(shift & 0x4)};
 }
 
