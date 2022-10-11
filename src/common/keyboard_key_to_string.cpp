@@ -96,6 +96,8 @@ std::string GetKeyName(Key key) {
         case Key::F10: return "F10";
         case Key::F11: return "F11";
         case Key::F12: return "F12";
+        case Key::NUM_LOCK: return "NUM_LOCK";
+        case Key::SCROLL_LOCK: return "SCROLL_LOCK";
         case Key::LSHIFT: return "LSHIFT";
         case Key::RSHIFT: return "RSHIFT";
         case Key::LCTRL: return "LCTRL";
