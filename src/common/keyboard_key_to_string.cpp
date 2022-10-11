@@ -106,6 +106,7 @@ std::string GetKeyName(Key key) {
         case Key::RALT: return "RALT";
         case Key::LSUPER: return "LSUPER";
         case Key::RSUPER: return "RSUPER";
+        case Key::MENU: return "MENU";
         case Key::COLON: return "COLON";
         case Key::PLUS: return "PLUS";
         case Key::COMMA: return "COMMA";

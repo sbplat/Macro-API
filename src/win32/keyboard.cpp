@@ -48,7 +48,7 @@ int MapToOSKey(Key key) {
         vkCode = key - NUM_LOCK + VK_NUMLOCK;
     } else if (key >= LSHIFT && key <= RALT) {
         vkCode = key - LSHIFT + VK_LSHIFT;
-    } else if (key >= LSUPER && key <= RSUPER) {
+    } else if (key >= LSUPER && key <= MENU) {
         vkCode = key - LSUPER + VK_LWIN;
     } else if (key >= COLON && key <= TILDE) {
         vkCode = key - COLON + VK_OEM_1;
@@ -90,7 +90,7 @@ Key MapFromOSKey(int osKey) {
         key = static_cast<Key>(osKey - VK_NUMLOCK + NUM_LOCK);
     } else if (osKey >= VK_LSHIFT && osKey <= VK_RMENU) {
         key = static_cast<Key>(osKey - VK_LSHIFT + LSHIFT);
-    } else if (osKey >= VK_LWIN && osKey <= VK_RWIN) {
+    } else if (osKey >= VK_LWIN && osKey <= VK_APPS) {
         key = static_cast<Key>(osKey - VK_LWIN + LSUPER);
     } else if (osKey >= VK_OEM_1 && osKey <= VK_OEM_3) {
         key = static_cast<Key>(osKey - VK_OEM_1 + COLON);
