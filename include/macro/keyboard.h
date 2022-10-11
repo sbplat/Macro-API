@@ -38,9 +38,7 @@ Combo MapFromChar(char c);
 
 enum KeyState { UP, DOWN };
 
-struct State {
-    std::map<Key, KeyState> states;
-};
+typedef std::map<Key, KeyState> KeyStateMap;
 
 typedef void (*KeyCallback)(Key key, KeyState state);
 
@@ -48,7 +46,7 @@ typedef void (*KeyCallback)(Key key, KeyState state);
 void SetCallback(KeyCallback callback); // common
 
 // State
-State GetState();
+KeyStateMap GetState();
 
 // Commands
 void Down(Key key);

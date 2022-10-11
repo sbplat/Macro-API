@@ -102,8 +102,8 @@ Combo MapFromChar(char c) {
     return Combo{key, static_cast<bool>(shift & 0x1), static_cast<bool>(shift & 0x2), static_cast<bool>(shift & 0x4)};
 }
 
-State GetState() {
-    State state;
+KeyStateMap GetState() {
+    KeyStateMap state;
     // todo fill
     return state;
 }

@@ -19,8 +19,8 @@ Combo MapFromChar(char c) {
 
 }
 
-State GetState() {
-    State state;
+KeyStateMap GetState() {
+    KeyStateMap state;
     // todo fill
     return state;
 }
