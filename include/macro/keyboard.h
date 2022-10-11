@@ -45,6 +45,7 @@ typedef bool (*KeyCallback)(Key key, KeyState state);
 
 // Events
 void SetCallback(KeyCallback callback); // common
+void KeyboardHookLoop();
 
 // State
 KeyStateMap GetState();
