@@ -4,14 +4,17 @@ add_library(macro ${MACRO_LIBRARY_TYPE}
     "${MACRO_SOURCE_DIR}/include/macro/mouse.h"
     "${MACRO_SOURCE_DIR}/include/macro/misc.h"
     platform.h internal.h
-    common/keyboard.cpp common/mouse.cpp common/misc.cpp
+    common/keyboard.cpp common/keyboard_key_to_string.cpp
+    common/mouse.cpp common/misc.cpp
 )
 
 if (WIN32)
     message(STATUS "Detected platform: Windows")
     target_compile_definitions(macro PRIVATE _MACRO_WIN32)
     target_sources(macro PRIVATE
-        win32/keyboard.cpp win32/mouse.cpp win32/misc.cpp
+        win32/keyboard.cpp win32/keyboard_events.cpp
+        win32/mouse.cpp win32/mouse_events.cpp
+        win32/misc.cpp
     )
 elseif (APPLE)
     message(STATUS "Detected platform: macOS")

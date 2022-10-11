@@ -6,14 +6,6 @@
 namespace Macro {
 namespace Keyboard {
 
-std::string GetKeyName(Key key) {
-    int vkCode = MapToOSKey(key);
-    char buffer[256];
-    int scanCode = MapVirtualKey(vkCode, MAPVK_VK_TO_VSC);
-    int result = GetKeyNameTextA(scanCode << 16, buffer, 256);
-    return result > 0 ? std::string(buffer) : "Unknown";
-}
-
 namespace Internal {
 
 KeyCallback keyCallback = nullptr;
