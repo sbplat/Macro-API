@@ -9,5 +9,9 @@ int main() {
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     std::cout << "PreciseSleep(1000) took " << duration.count() << " nanoseconds" << std::endl;
+
+    std::cout << "Done!" << std::endl;
+    std::cin.get();
+
     return 0;
 }
