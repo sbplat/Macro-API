@@ -4,8 +4,13 @@ project(MACRO VERSION 1.0.0 LANGUAGES CXX)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(BUILD_EXAMPLES "Build examples" ON)
+option(BUILD_TESTS "Build tests" ON)
 option(BUILD_DOCS "Build documentation" ON)
 option(MACRO_INSTALL "Generate the install target" ON)
 
@@ -29,6 +34,10 @@ add_subdirectory(src)
 
 if (BUILD_EXAMPLES)
     add_subdirectory(examples)
+endif()
+
+if (BUILD_TESTS)
+    add_subdirectory(tests)
 endif()
 
 if (BUILD_DOCS)
