@@ -5,6 +5,10 @@ enable_testing()
 set(pass_regex "Passed")
 set(fail_regex "Failed")
 
+if (NOT CTEST_CONFIGURATION_TYPE)
+  set(CTEST_CONFIGURATION_TYPE ${CMAKE_BUILD_TYPE})
+endif()
+
 file(GLOB test_srcs "*.cpp")
 foreach(test_src ${test_srcs})
     get_filename_component(test_name ${test_src} NAME_WE)
