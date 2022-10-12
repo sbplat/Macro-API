@@ -6,7 +6,7 @@ set(pass_regex "Passed")
 set(fail_regex "Failed")
 
 if (NOT CTEST_CONFIGURATION_TYPE)
-  set(CTEST_CONFIGURATION_TYPE ${CMAKE_BUILD_TYPE})
+    set(CTEST_CONFIGURATION_TYPE ${CMAKE_BUILD_TYPE})
 endif()
 
 file(GLOB test_srcs "*.cpp")

@@ -4,6 +4,10 @@ project(MACRO VERSION 1.0.0 LANGUAGES CXX)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(BUILD_EXAMPLES "Build examples" ON)
 option(BUILD_TESTS "Build tests" ON)
