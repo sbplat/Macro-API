@@ -9,6 +9,7 @@ std::string GetKeyName(Key key) {
     switch (key) {
         case Key::BACKSPACE: return "BACKSPACE";
         case Key::TAB: return "TAB";
+        case Key::CLEAR: return "CLEAR";
         case Key::ENTER: return "ENTER";
         case Key::SHIFT: return "SHIFT";
         case Key::CTRL: return "CTRL";

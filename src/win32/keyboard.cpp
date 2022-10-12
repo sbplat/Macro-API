@@ -26,8 +26,8 @@ int MapToOSKey(Key key) {
 
     if (key >= BACKSPACE && key <= TAB) {
         vkCode = key - BACKSPACE + VK_BACK;
-    } else if (key >= ENTER && key <= ENTER) {
-        vkCode = key - ENTER + VK_RETURN;
+    } else if (key >= CLEAR && key <= ENTER) {
+        vkCode = key - CLEAR + VK_CLEAR;
     } else if (key >= SHIFT && key <= CAPS_LOCK) {
         vkCode = key - SHIFT + VK_SHIFT;
     } else if (key >= ESCAPE && key <= ESCAPE) {
@@ -68,8 +68,8 @@ Key MapFromOSKey(int osKey) {
 
     if (osKey >= VK_BACK && osKey <= VK_TAB) {
         key = static_cast<Key>(osKey - VK_BACK + BACKSPACE);
-    } else if (osKey >= VK_RETURN && osKey <= VK_RETURN) {
-        key = static_cast<Key>(osKey - VK_RETURN + ENTER);
+    } else if (osKey >= VK_CLEAR && osKey <= VK_RETURN) {
+        key = static_cast<Key>(osKey - VK_CLEAR + CLEAR);
     } else if (osKey >= VK_SHIFT && osKey <= VK_CAPITAL) {
         key = static_cast<Key>(osKey - VK_SHIFT + SHIFT);
     } else if (osKey >= VK_ESCAPE && osKey <= VK_ESCAPE) {
