@@ -22,6 +22,6 @@ foreach(test_src ${test_srcs})
     )
     add_custom_command(TARGET ${test_name}
         POST_BUILD
-            COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+            COMMAND ${CMAKE_CTEST_COMMAND} -C ${CTEST_CONFIGURATION_TYPE} --output-on-failure
     )
 endforeach()
