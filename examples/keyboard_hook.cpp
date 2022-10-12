@@ -19,7 +19,9 @@ int main() {
     std::thread keyboardHookThread(Macro::Keyboard::KeyboardHookLoop);
     keyboardHookThread.detach();
 
-    Macro::Misc::Sleep(10000);
+    while (true) {
+        Macro::Misc::Sleep(1000);
+    }
 
     return 0;
 }
