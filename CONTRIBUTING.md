@@ -6,7 +6,8 @@ Thank you for taking the time to contribute to this project!
 
 - Drop a :star: on the Github repository (optional)
 
-- Before Contribute Please read [CONTRIBUTING.md](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/sbplat/Macro-API/blob/main/CODE_OF_CONDUCT.md)
+
+- Please read  [CONTRIBUTING.md](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/sbplat/Macro-API/blob/main/CODE_OF_CONDUCT.md) before contributing in this project.
 
 ## Issues
 
