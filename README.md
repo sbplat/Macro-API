@@ -10,6 +10,7 @@
   <a href="#features">Features</a> •
   <a href="#planned-features">Planned Features</a> •
   <a href="#building">Building</a> •
+  <a href="#contributing">Contributing</a> •
   <a href="#license">License</a>
 </p>
 
@@ -38,38 +39,18 @@ mkdir build && cd build
 cmake ..
 cmake --build .
 ```
-## [How to Contributing](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md)
+## Contributing
 
-- Drop a :star: on the Github repository (optional)
-
-- Please read  [CONTRIBUTING.md](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/sbplat/Macro-API/blob/main/CODE_OF_CONDUCT.md) before contributing in this project.
-
-- Create an issue of the project or a feature you would like to add in the project and get the task assigned for youself.(Issue can be any bug fixes or any feature you want to add in this project).
-
-- Fork the repo to your Github.
-
-- Clone the Repo by going to your local Git Client in a particular local folder in your local machine by using this command with your forked repository link in place of below given link: 
-  `git clone https://github.com/sbplat/Macro-API`
-- Create a branch using below command.
-  `git branch <your branch name>`
-- Checkout to your branch.
-  `git checkout <your branch name>`
-- Add your code in your local machine folder.
-  `git add . `
-- Commit your changes.
-  `git commit -m"<add your message here>"`
-- Push your changes.
-  `git push --set-upstream origin <your branch name>`
-
-- Make a pull request! (compare your branch with the owner main branch)
-
-# Our Amazing Contributors ❤️
-<br>
-<a href="https://github.com/sbplat/Macro-API/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=sbplat/Macro-API&&max=817" />
-</a>
-
+See our [Contributing Guidelines](CONTRIBUTING.md).
 
 ## License
 
 This project is licensed under the [BSD 3 license](LICENSE).
+
+# Our Amazing Contributors ❤️
+
+<a href="https://github.com/sbplat/Macro-API/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sbplat/Macro-API" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
