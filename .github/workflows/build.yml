@@ -17,6 +17,8 @@ jobs:
         mkdir build && cd build
         cmake ..
         cmake --build .
+        cd test
+        ctest -C Debug
 
     - uses: actions/upload-artifact@v3
       with:
