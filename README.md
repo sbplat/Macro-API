@@ -42,7 +42,7 @@ cmake --build .
 
 - Drop a :star: on the Github repository (optional)
 
-- Before Contribute Please read [CONTRIBUTING.md](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/sbplat/Macro-API/blob/main/CODE_OF_CONDUCT.md)
+- Please read  [CONTRIBUTING.md](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/sbplat/Macro-API/blob/main/CODE_OF_CONDUCT.md) before contributing in this project.
 
 - Create an issue of the project or a feature you would like to add in the project and get the task assigned for youself.(Issue can be any bug fixes or any feature you want to add in this project).
 
