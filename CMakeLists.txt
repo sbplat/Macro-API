@@ -37,7 +37,7 @@ if (BUILD_EXAMPLES)
 endif()
 
 if (BUILD_TESTS)
-    add_subdirectory(tests)
+    add_subdirectory(test)
 endif()
 
 if (BUILD_DOCS)
