@@ -38,17 +38,17 @@ mkdir build && cd build
 cmake ..
 cmake --build .
 ```
-## How to contribute:
+## [How to Contributing](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md)
 
-- Drop a :star: on the Github repository (optional)<br/>
+- Drop a :star: on the Github repository (optional)
 
 - Before Contribute Please read [CONTRIBUTING.md](https://github.com/sbplat/Macro-API/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/sbplat/Macro-API/blob/main/CODE_OF_CONDUCT.md)
 
 - Create an issue of the project or a feature you would like to add in the project and get the task assigned for youself.(Issue can be any bug fixes or any feature you want to add in this project).
 
-- Fork the repo to your Github.<br/>
+- Fork the repo to your Github.
 
-- Clone the Repo by going to your local Git Client in a particular local folder in your local machine by using this command with your forked repository link in place of below given link: <br/>
+- Clone the Repo by going to your local Git Client in a particular local folder in your local machine by using this command with your forked repository link in place of below given link: 
   `git clone https://github.com/sbplat/Macro-API`
 - Create a branch using below command.
   `git branch <your branch name>`
