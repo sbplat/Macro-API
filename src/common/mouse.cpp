@@ -3,17 +3,19 @@
 #include "../internal.h"
 #include "../platform.h"
 
+#include <stdexcept>
+
 namespace Macro {
 namespace Mouse {
 
-const char* GetButtonName(Button button) {
+std::string GetButtonName(Button button) {
     switch (button) {
         case LEFT: return "Left";
         case RIGHT: return "Right";
         case MIDDLE: return "Middle";
         case X1: return "X1";
         case X2: return "X2";
-        default: return "Unknown";
+        default: throw std::runtime_error("Unknown mouse button (GetButtonName): " + std::to_string(button));
     }
 }
 

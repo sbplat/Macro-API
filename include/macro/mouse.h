@@ -2,12 +2,13 @@
 #define _mouse_h_
 
 #include <map>
+#include <string>
 
 namespace Macro {
 namespace Mouse {
 
 enum Button { LEFT, RIGHT, MIDDLE, X1, X2 };
-const char* GetButtonName(Button button);
+std::string GetButtonName(Button button);
 
 enum State { UP, DOWN };
 
@@ -18,14 +19,15 @@ struct Point {
 
 typedef std::map<Button, State> ButtonStateMap;
 
-typedef void (*MoveCallback)(Point position);
-typedef void (*ButtonCallback)(Button button, State state);
-typedef void (*ScrollCallback)(int delta);
+typedef bool (*MoveCallback)(Point position);
+typedef bool (*ButtonCallback)(Button button, State state);
+typedef bool (*ScrollCallback)(int delta);
 
 // Events
-void SetMoveCallback(MoveCallback callback); // common
-void SetButtonCallback(ButtonCallback callback); // common
-void SetScrollCallback(ScrollCallback callback); // common
+void SetMoveCallback(MoveCallback callback);      // common
+void SetButtonCallback(ButtonCallback callback);  // common
+void SetScrollCallback(ScrollCallback callback);  // common
+void MouseHookLoop();
 
 // State
 Point GetPosition();
@@ -36,7 +38,7 @@ void MoveAbsolute(int x, int y);
 void MoveRelative(int x, int y);
 void Down(Button button);
 void Up(Button button);
-void Click(Button button); // common
+void Click(Button button);  // common
 void Scroll(int delta, bool horizontal = false);
 
 }  // namespace Mouse

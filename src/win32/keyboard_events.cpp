@@ -11,7 +11,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
     KBDLLHOOKSTRUCT *key = reinterpret_cast<KBDLLHOOKSTRUCT *>(lParam);
 
     // Ignore injected events.
-    if (!(key->flags & LLKHF_INJECTED)) {
+    if (nCode >= 0 && !(key->flags & LLKHF_INJECTED)) {
         KeyState state = (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN) ? KeyState::DOWN : KeyState::UP;
 
         if (Internal::keyCallback != nullptr) {
