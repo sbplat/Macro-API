@@ -21,6 +21,14 @@ std::string GetButtonName(Button button) {
 
 namespace Internal {
 
+bool ButtonCb(Button button, ButtonState state) {
+    Internal::buttonStates[button] = state;
+
+    return false;
+}
+
+ButtonStateMap buttonStates;
+
 MoveCallback moveCallback = nullptr;
 ButtonCallback buttonCallback = nullptr;
 ScrollCallback scrollCallback = nullptr;
@@ -37,6 +45,10 @@ void SetButtonCallback(ButtonCallback callback) {
 
 void SetScrollCallback(ScrollCallback callback) {
     Internal::scrollCallback = callback;
+}
+
+const ButtonStateMap& GetButtonStates() {
+    return Internal::buttonStates;
 }
 
 void Click(Button button) {

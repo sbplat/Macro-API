@@ -10,17 +10,17 @@ namespace Mouse {
 enum Button { LEFT, RIGHT, MIDDLE, X1, X2 };
 std::string GetButtonName(Button button);
 
-enum State { UP, DOWN };
+enum ButtonState { UP, DOWN };
 
 struct Point {
     int x;
     int y;
 };
 
-typedef std::map<Button, State> ButtonStateMap;
+typedef std::map<Button, ButtonState> ButtonStateMap;
 
 typedef bool (*MoveCallback)(Point position);
-typedef bool (*ButtonCallback)(Button button, State state);
+typedef bool (*ButtonCallback)(Button button, ButtonState state);
 typedef bool (*ScrollCallback)(int delta);
 
 // Events
@@ -31,7 +31,7 @@ void MouseHookLoop();
 
 // State
 Point GetPosition();
-ButtonStateMap GetButtonStates();
+const ButtonStateMap& GetButtonStates();
 
 // Commands
 void MoveAbsolute(int x, int y);

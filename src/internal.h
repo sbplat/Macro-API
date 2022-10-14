@@ -22,6 +22,10 @@ extern KeyCallback keyCallback;
 namespace Mouse {
 namespace Internal {
 
+bool ButtonCb(Button button, ButtonState state);
+
+extern ButtonStateMap buttonStates;
+
 extern MoveCallback moveCallback;
 extern ButtonCallback buttonCallback;
 extern ScrollCallback scrollCallback;
