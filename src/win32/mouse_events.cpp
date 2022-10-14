@@ -25,8 +25,9 @@ LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
                 shouldBlock = Internal::scrollCallback(GET_WHEEL_DELTA_WPARAM(mouse->mouseData));
             }
         } else {
-            ButtonState state = (wParam == WM_LBUTTONDOWN || wParam == WM_RBUTTONDOWN || wParam == WM_MBUTTONDOWN || wParam == WM_XBUTTONDOWN) ? ButtonState::DOWN
-                                                                                                                                         : ButtonState::UP;
+            ButtonState state = (wParam == WM_LBUTTONDOWN || wParam == WM_RBUTTONDOWN || wParam == WM_MBUTTONDOWN || wParam == WM_XBUTTONDOWN)
+                                    ? ButtonState::DOWN
+                                    : ButtonState::UP;
             Button button;
 
             if (wParam == WM_LBUTTONDOWN || wParam == WM_LBUTTONUP) {
