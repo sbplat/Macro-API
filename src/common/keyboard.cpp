@@ -8,12 +8,24 @@ namespace Keyboard {
 
 namespace Internal {
 
+bool KeyCb(Key key, KeyState state) {
+    Internal::keyStates[key] = state;
+
+    return false;
+}
+
+KeyStateMap keyStates;
+
 KeyCallback keyCallback = nullptr;
 
 }  // namespace Internal
 
 void SetCallback(KeyCallback callback) {
     Internal::keyCallback = callback;
+}
+
+const KeyStateMap &GetKeyStates() {
+    return Internal::keyStates;
 }
 
 void Tap(Key key) {

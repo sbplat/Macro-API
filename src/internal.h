@@ -10,6 +10,10 @@ namespace Macro {
 namespace Keyboard {
 namespace Internal {
 
+bool KeyCb(Key key, KeyState state);
+
+extern KeyStateMap keyStates;
+
 extern KeyCallback keyCallback;
 
 }  // namespace Internal
