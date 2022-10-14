@@ -112,12 +112,6 @@ Combo MapFromChar(char c) {
     return Combo{key, static_cast<bool>(shift & 0x1), static_cast<bool>(shift & 0x2), static_cast<bool>(shift & 0x4)};
 }
 
-KeyStateMap GetState() {
-    KeyStateMap state;
-    // todo fill
-    return state;
-}
-
 void Down(Key key) {
     INPUT input = {0};
     input.type = INPUT_KEYBOARD;

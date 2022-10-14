@@ -2,8 +2,6 @@
 
 #include "../platform.h"
 
-#include <vector>
-
 namespace Macro {
 namespace Mouse {
 
