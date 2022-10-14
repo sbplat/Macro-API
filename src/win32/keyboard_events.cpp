@@ -1,8 +1,8 @@
 #include <macro/keyboard.h>
 
-#include <stdexcept>
-
 #include "../platform.h"
+
+#include <stdexcept>
 
 namespace Macro {
 namespace Keyboard {

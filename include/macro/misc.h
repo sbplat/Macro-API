@@ -4,10 +4,10 @@
 namespace Macro {
 namespace Misc {
 
-void Sleep(int ms); // common
+void Sleep(int ms);  // common
 void PreciseSleep(int ms);
 
 }  // namespace Misc
 }  // namespace Macro
 
-#endif // _misc_h_
+#endif  // _misc_h_

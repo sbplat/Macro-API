@@ -25,7 +25,7 @@ MoveCallback moveCallback = nullptr;
 ButtonCallback buttonCallback = nullptr;
 ScrollCallback scrollCallback = nullptr;
 
-} // Internal
+}  // namespace Internal
 
 void SetMoveCallback(MoveCallback callback) {
     Internal::moveCallback = callback;

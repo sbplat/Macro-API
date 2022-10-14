@@ -13,4 +13,4 @@
     #error "Unknown platform"
 #endif
 
-#endif // _platform_h_
+#endif  // _platform_h_

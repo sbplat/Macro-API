@@ -1,9 +1,9 @@
 #include <macro/mouse.h>
 
+#include "../platform.h"
+
 #include <stdexcept>
 #include <string>
-
-#include "../platform.h"
 
 namespace Macro {
 namespace Mouse {
@@ -24,7 +24,8 @@ LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
                 shouldBlock = Internal::scrollCallback(GET_WHEEL_DELTA_WPARAM(mouse->mouseData));
             }
         } else {
-            State state = (wParam == WM_LBUTTONDOWN || wParam == WM_RBUTTONDOWN || wParam == WM_MBUTTONDOWN || wParam == WM_XBUTTONDOWN) ? State::DOWN : State::UP;
+            State state = (wParam == WM_LBUTTONDOWN || wParam == WM_RBUTTONDOWN || wParam == WM_MBUTTONDOWN || wParam == WM_XBUTTONDOWN) ? State::DOWN
+                                                                                                                                         : State::UP;
             Button button;
 
             if (wParam == WM_LBUTTONDOWN || wParam == WM_LBUTTONUP) {
@@ -69,5 +70,5 @@ void MouseHookLoop() {
     UnhookWindowsHookEx(mouseHook);
 }
 
-} // namespace Mouse
-} // namespace Macro
+}  // namespace Mouse
+}  // namespace Macro

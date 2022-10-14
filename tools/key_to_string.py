@@ -34,7 +34,7 @@ for i, value in enumerate(values):
     code += f"        case Key::{value}: return \"{value}\";\n"
 
 code += """\
-        default: throw std::runtime_error(std::string("Unknown key (GetKeyName): ") + std::to_string(key));
+        default: throw std::runtime_error("Unknown key (GetKeyName): " + std::to_string(key));
     }
 }
 

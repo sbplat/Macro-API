@@ -121,7 +121,7 @@ std::string GetKeyName(Key key) {
         case Key::QUOTE: return "QUOTE";
         case Key::OEM_8: return "OEM_8";
         case Key::OEM_102: return "OEM_102";
-        default: throw std::runtime_error(std::string("Unknown key (GetKeyName): ") + std::to_string(key));
+        default: throw std::runtime_error("Unknown key (GetKeyName): " + std::to_string(key));
     }
 }
 

@@ -44,7 +44,7 @@ typedef std::map<Key, KeyState> KeyStateMap;
 typedef bool (*KeyCallback)(Key key, KeyState state);
 
 // Events
-void SetCallback(KeyCallback callback); // common
+void SetCallback(KeyCallback callback);  // common
 void KeyboardHookLoop();
 
 // State
@@ -53,10 +53,10 @@ KeyStateMap GetState();
 // Commands
 void Down(Key key);
 void Up(Key key);
-void Tap(Key key); // common
-void Type(const std::string& text); // common
+void Tap(Key key);                   // common
+void Type(const std::string& text);  // common
 
 }  // namespace Keyboard
 }  // namespace Macro
 
-#endif // _keyboard_h_
+#endif  // _keyboard_h_

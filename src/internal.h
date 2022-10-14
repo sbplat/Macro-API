@@ -12,8 +12,8 @@ namespace Internal {
 
 extern KeyCallback keyCallback;
 
-} // Internal
-} // Keyboard
+}  // namespace Internal
+}  // namespace Keyboard
 
 namespace Mouse {
 namespace Internal {
@@ -23,7 +23,7 @@ extern ButtonCallback buttonCallback;
 extern ScrollCallback scrollCallback;
 
 }  // namespace Internal
-} // Mouse
+}  // namespace Mouse
 
 }  // namespace Macro
 

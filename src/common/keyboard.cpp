@@ -10,7 +10,7 @@ namespace Internal {
 
 KeyCallback keyCallback = nullptr;
 
-} // Internal
+}  // namespace Internal
 
 void SetCallback(KeyCallback callback) {
     Internal::keyCallback = callback;

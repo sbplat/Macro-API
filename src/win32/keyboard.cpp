@@ -9,17 +9,17 @@ namespace Keyboard {
 
 #ifndef VK_KEY_0
 #define VK_KEY_0 0x30
-#endif // VK_KEY_0
+#endif  // VK_KEY_0
 #ifndef VK_KEY_9
 #define VK_KEY_9 0x39
-#endif // VK_KEY_9
+#endif  // VK_KEY_9
 
 #ifndef VK_KEY_A
 #define VK_KEY_A 0x41
-#endif // VK_KEY_A
+#endif  // VK_KEY_A
 #ifndef VK_KEY_Z
 #define VK_KEY_Z 0x5A
-#endif // VK_KEY_Z
+#endif  // VK_KEY_Z
 
 int MapToOSKey(Key key) {
     int vkCode;
