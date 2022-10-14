@@ -10,6 +10,7 @@
   <a href="#features">Features</a> •
   <a href="#planned-features">Planned Features</a> •
   <a href="#building">Building</a> •
+  <a href="#contributing">Contributing</a> •
   <a href="#license">License</a>
 </p>
 
@@ -38,7 +39,18 @@ mkdir build && cd build
 cmake ..
 cmake --build .
 ```
+## Contributing
+
+See our [Contributing Guidelines](CONTRIBUTING.md).
 
 ## License
 
 This project is licensed under the [BSD 3 license](LICENSE).
+
+# Our Amazing Contributors ❤️
+
+<a href="https://github.com/sbplat/Macro-API/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sbplat/Macro-API" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
