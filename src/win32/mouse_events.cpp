@@ -1,5 +1,6 @@
 #include <macro/mouse.h>
 
+#include "../internal.h"
 #include "../platform.h"
 
 #include <stdexcept>
@@ -24,8 +25,8 @@ LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
                 shouldBlock = Internal::scrollCallback(GET_WHEEL_DELTA_WPARAM(mouse->mouseData));
             }
         } else {
-            State state = (wParam == WM_LBUTTONDOWN || wParam == WM_RBUTTONDOWN || wParam == WM_MBUTTONDOWN || wParam == WM_XBUTTONDOWN) ? State::DOWN
-                                                                                                                                         : State::UP;
+            ButtonState state = (wParam == WM_LBUTTONDOWN || wParam == WM_RBUTTONDOWN || wParam == WM_MBUTTONDOWN || wParam == WM_XBUTTONDOWN) ? ButtonState::DOWN
+                                                                                                                                         : ButtonState::UP;
             Button button;
 
             if (wParam == WM_LBUTTONDOWN || wParam == WM_LBUTTONUP) {
@@ -38,6 +39,10 @@ LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
                 button = (GET_XBUTTON_WPARAM(mouse->mouseData) == XBUTTON1) ? Button::X1 : Button::X2;
             } else {
                 throw std::runtime_error("Unknown mouse button (LowLevelMouseProc): " + std::to_string(wParam));
+            }
+
+            if (Internal::ButtonCb(button, state)) {
+                return 1;
             }
 
             if (Internal::buttonCallback != nullptr) {
