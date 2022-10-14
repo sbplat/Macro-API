@@ -20,7 +20,8 @@
 * Easy to use
 * Full keyboard and mouse control
 * Get keyboard and mouse states (in progress)
-* Open source
+* Open source 
+
 
 ## Planned Features
 
@@ -28,7 +29,9 @@
 * More examples
 * Add documentation
 * More control over your keyboard and mouse
-* Image searching
+* Image searching 
+* support of modifications editing 
+* Adding dimensions
 
 ## Building
 
