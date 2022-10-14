@@ -48,7 +48,7 @@ void SetCallback(KeyCallback callback);  // common
 void KeyboardHookLoop();
 
 // State
-KeyStateMap GetState();
+const KeyStateMap& GetKeyStates(); // common
 
 // Commands
 void Down(Key key);
