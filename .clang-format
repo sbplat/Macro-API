@@ -1,5 +1,6 @@
 ---
 BasedOnStyle: LLVM
+ColumnLimit: '100'
 ConstructorInitializerIndentWidth: '4'
 ContinuationIndentWidth: '4'
 IndentWidth: '4'
