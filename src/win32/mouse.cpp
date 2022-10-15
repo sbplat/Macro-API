@@ -89,5 +89,5 @@ void Scroll(int delta, bool horizontal) {
     SendInput(1, &input, sizeof(INPUT));
 }
 
-} // namespace Mouse
-} // namespace Macro
+}  // namespace Mouse
+}  // namespace Macro

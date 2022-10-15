@@ -18,7 +18,7 @@ KeyStateMap keyStates;
 
 KeyCallback keyCallback = nullptr;
 
-} // namespace Internal
+}  // namespace Internal
 
 void SetCallback(KeyCallback callback) { Internal::keyCallback = callback; }
 
@@ -54,5 +54,5 @@ void Type(const std::string &text) {
     }
 }
 
-} // namespace Keyboard
-} // namespace Macro
+}  // namespace Keyboard
+}  // namespace Macro

@@ -11,5 +11,5 @@ namespace Mouse {
 
 void MouseHookLoop() {}
 
-} // namespace Mouse
-} // namespace Macro
+}  // namespace Mouse
+}  // namespace Macro

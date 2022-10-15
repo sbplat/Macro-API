@@ -127,5 +127,5 @@ std::string GetKeyName(Key key) {
     // clang-format on
 }
 
-} // namespace Keyboard
-} // namespace Macro
+}  // namespace Keyboard
+}  // namespace Macro

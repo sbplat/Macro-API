@@ -7,5 +7,5 @@ namespace Misc {
 
 void PreciseSleep(int ms) {}
 
-} // namespace Misc
-} // namespace Macro
+}  // namespace Misc
+}  // namespace Macro

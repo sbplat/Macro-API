@@ -5,4 +5,4 @@
 #include "misc.h"
 #include "mouse.h"
 
-#endif // _macro_h_
+#endif  // _macro_h_

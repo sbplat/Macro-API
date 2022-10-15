@@ -16,5 +16,5 @@ void PreciseSleep(int ms) {
     } while ((end.QuadPart - start.QuadPart) * 1000 / frequency.QuadPart < ms);
 }
 
-} // namespace Misc
-} // namespace Macro
+}  // namespace Misc
+}  // namespace Macro

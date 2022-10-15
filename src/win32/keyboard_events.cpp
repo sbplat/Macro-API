@@ -52,5 +52,5 @@ void KeyboardHookLoop() {
     UnhookWindowsHookEx(keyboardHook);
 }
 
-} // namespace Keyboard
-} // namespace Macro
+}  // namespace Keyboard
+}  // namespace Macro

@@ -14,7 +14,7 @@ namespace Internal {
 #elif defined(_MACRO_X11)
 extern Display *display;
 #endif
-} // namespace Internal
+}  // namespace Internal
 
 namespace Keyboard {
 namespace Internal {
@@ -25,8 +25,8 @@ extern KeyStateMap keyStates;
 
 extern KeyCallback keyCallback;
 
-} // namespace Internal
-} // namespace Keyboard
+}  // namespace Internal
+}  // namespace Keyboard
 
 namespace Mouse {
 namespace Internal {
@@ -39,9 +39,9 @@ extern MoveCallback moveCallback;
 extern ButtonCallback buttonCallback;
 extern ScrollCallback scrollCallback;
 
-} // namespace Internal
-} // namespace Mouse
+}  // namespace Internal
+}  // namespace Mouse
 
-} // namespace Macro
+}  // namespace Macro
 
-#endif // _internal_h_
+#endif  // _internal_h_

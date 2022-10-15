@@ -10,5 +10,5 @@ namespace Misc {
 
 void Sleep(int ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }
 
-} // namespace Misc
-} // namespace Macro
+}  // namespace Misc
+}  // namespace Macro

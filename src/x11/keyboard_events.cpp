@@ -10,5 +10,5 @@ namespace Keyboard {
 
 void KeyboardHookLoop() {}
 
-} // namespace Keyboard
-} // namespace Macro
+}  // namespace Keyboard
+}  // namespace Macro

@@ -6,6 +6,7 @@ ContinuationIndentWidth: '4'
 IndentCaseLabels: 'true'
 IndentPPDirectives: BeforeHash
 IndentWidth: '4'
+SpacesBeforeTrailingComments: '2'
 TabWidth: '4'
 UseTab: Never
 

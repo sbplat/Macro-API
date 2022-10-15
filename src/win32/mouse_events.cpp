@@ -79,5 +79,5 @@ void MouseHookLoop() {
     UnhookWindowsHookEx(mouseHook);
 }
 
-} // namespace Mouse
-} // namespace Macro
+}  // namespace Mouse
+}  // namespace Macro

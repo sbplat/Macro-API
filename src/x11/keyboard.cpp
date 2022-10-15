@@ -17,5 +17,5 @@ void Down(Key key) {}
 
 void Up(Key key) {}
 
-} // namespace Keyboard
-} // namespace Macro
+}  // namespace Keyboard
+}  // namespace Macro
