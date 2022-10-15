@@ -17,5 +17,5 @@ void Up(Button button) {}
 
 void Scroll(int delta, bool horizontal) {}
 
-} // namespace Mouse
-} // namespace Macro
+}  // namespace Mouse
+}  // namespace Macro
