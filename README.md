@@ -34,7 +34,7 @@
 
 1. Clone this project.
 2. Build the Macro API using CMake.
-```
+```batch
 mkdir build && cd build
 cmake ..
 cmake --build .

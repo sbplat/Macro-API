@@ -11,19 +11,19 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - run: |
-        mkdir build && cd build
-        cmake ..
-        cmake --build .
-        cd test
-        ctest -C Debug
+      - uses: actions/checkout@v3
+      - run: |
+          mkdir build && cd build
+          cmake ..
+          cmake --build .
+          cd test
+          ctest -C Debug
 
-    - uses: actions/upload-artifact@v3
-      name: Windows build
-      with:
-        path: |
-          build
+      - uses: actions/upload-artifact@v3
+        name: Windows build
+        with:
+          path: |
+            build
 
   build-macos:
     runs-on: macos-latest
@@ -31,19 +31,19 @@ jobs:
     continue-on-error: true # macOS support is still WIP
 
     steps:
-    - uses: actions/checkout@v3
-    - run: |
-        mkdir build && cd build
-        cmake ..
-        cmake --build .
-        cd test
-        ctest -C Debug
+      - uses: actions/checkout@v3
+      - run: |
+          mkdir build && cd build
+          cmake ..
+          cmake --build .
+          cd test
+          ctest -C Debug
 
-    - uses: actions/upload-artifact@v3
-      name: macOS build
-      with:
-        path: |
-          build
+      - uses: actions/upload-artifact@v3
+        name: macOS build
+        with:
+          path: |
+            build
 
   build-linux:
     runs-on: ubuntu-latest
@@ -51,16 +51,16 @@ jobs:
     continue-on-error: true # Linux support is still WIP
 
     steps:
-    - uses: actions/checkout@v3
-    - run: |
-        mkdir build && cd build
-        cmake ..
-        cmake --build .
-        cd test
-        ctest -C Debug
+      - uses: actions/checkout@v3
+      - run: |
+          mkdir build && cd build
+          cmake ..
+          cmake --build .
+          cd test
+          ctest -C Debug
 
-    - uses: actions/upload-artifact@v3
-      name: Linux build
-      with:
-        path: |
-          build
+      - uses: actions/upload-artifact@v3
+        name: Linux build
+        with:
+          path: |
+            build

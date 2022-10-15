@@ -16,7 +16,11 @@ LEFT_BRACKET, BACKSLASH, RIGHT_BRACKET, QUOTE, OEM_8,
 OEM_102,
 """
 
-values = [value for value in enum.replace("\n", "").replace(" ", "").split(",") if len(value) > 0]
+values = [
+    value
+    for value in enum.replace("\n", "").replace(" ", "").split(",")
+    if len(value) > 0
+]
 
 code = """\
 #include <macro/keyboard.h>
@@ -32,7 +36,7 @@ std::string GetKeyName(Key key) {
 """
 
 for i, value in enumerate(values):
-    code += f"        case Key::{value}: return \"{value}\";\n"
+    code += f'        case Key::{value}: return "{value}";\n'
 
 code += """\
         default: throw std::runtime_error("Unknown key (GetKeyName): " + std::to_string(key));
