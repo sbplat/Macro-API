@@ -7,8 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-windows:
     runs-on: windows-latest
 
     steps:
@@ -21,6 +20,47 @@ jobs:
         ctest -C Debug
 
     - uses: actions/upload-artifact@v3
+      name: Windows build
+      with:
+        path: |
+          build
+
+  build-macos:
+    runs-on: macos-latest
+
+    continue-on-error: true # macOS support is still WIP
+
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        mkdir build && cd build
+        cmake ..
+        cmake --build .
+        cd test
+        ctest -C Debug
+
+    - uses: actions/upload-artifact@v3
+      name: macOS build
+      with:
+        path: |
+          build
+
+  build-linux:
+    runs-on: ubuntu-latest
+
+    continue-on-error: true # Linux support is still WIP
+
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        mkdir build && cd build
+        cmake ..
+        cmake --build .
+        cd test
+        ctest -C Debug
+
+    - uses: actions/upload-artifact@v3
+      name: Linux build
       with:
         path: |
           build
