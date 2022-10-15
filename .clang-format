@@ -1,0 +1,9 @@
+---
+BasedOnStyle: LLVM
+ConstructorInitializerIndentWidth: '4'
+ContinuationIndentWidth: '4'
+IndentWidth: '4'
+TabWidth: '4'
+UseTab: Never
+
+...
