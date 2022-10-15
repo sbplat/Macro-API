@@ -1,25 +1,25 @@
 #include <macro/keyboard.h>
 
-#include "../platform.h"
-
 #include <stdexcept>
+
+#include "../platform.h"
 
 namespace Macro {
 namespace Keyboard {
 
 #ifndef VK_KEY_0
-#define VK_KEY_0 0x30
-#endif  // VK_KEY_0
+    #define VK_KEY_0 0x30
+#endif // VK_KEY_0
 #ifndef VK_KEY_9
-#define VK_KEY_9 0x39
-#endif  // VK_KEY_9
+    #define VK_KEY_9 0x39
+#endif // VK_KEY_9
 
 #ifndef VK_KEY_A
-#define VK_KEY_A 0x41
-#endif  // VK_KEY_A
+    #define VK_KEY_A 0x41
+#endif // VK_KEY_A
 #ifndef VK_KEY_Z
-#define VK_KEY_Z 0x5A
-#endif  // VK_KEY_Z
+    #define VK_KEY_Z 0x5A
+#endif // VK_KEY_Z
 
 int MapToOSKey(Key key) {
     int vkCode;
@@ -57,7 +57,8 @@ int MapToOSKey(Key key) {
     } else if (key >= OEM_102 && key <= OEM_102) {
         vkCode = key - OEM_102 + VK_OEM_102;
     } else {
-        throw std::runtime_error(std::string("Unrecognized key (MapToOSKey): ") + std::to_string(key));
+        throw std::runtime_error(std::string("Unrecognized key (MapToOSKey): ") +
+                                 std::to_string(key));
     }
 
     return vkCode;
@@ -99,7 +100,8 @@ Key MapFromOSKey(int osKey) {
     } else if (osKey >= VK_OEM_102 && osKey <= VK_OEM_102) {
         key = static_cast<Key>(osKey - VK_OEM_102 + OEM_102);
     } else {
-        throw std::runtime_error(std::string("Unrecognized key (MapFromOSKey): ") + std::to_string(osKey));
+        throw std::runtime_error(std::string("Unrecognized key (MapFromOSKey): ") +
+                                 std::to_string(osKey));
     }
 
     return key;
@@ -109,7 +111,8 @@ Combo MapFromChar(char c) {
     short result = VkKeyScanA(c);
     int vkCode = result & 0xFF, shift = result >> 8;
     Key key = MapFromOSKey(vkCode);
-    return Combo{key, static_cast<bool>(shift & 0x1), static_cast<bool>(shift & 0x2), static_cast<bool>(shift & 0x4)};
+    return Combo{key, static_cast<bool>(shift & 0x1), static_cast<bool>(shift & 0x2),
+                 static_cast<bool>(shift & 0x4)};
 }
 
 void Down(Key key) {
@@ -127,5 +130,5 @@ void Up(Key key) {
     SendInput(1, &input, sizeof(INPUT));
 }
 
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro

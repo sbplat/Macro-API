@@ -24,24 +24,24 @@ typedef bool (*ButtonCallback)(Button button, ButtonState state);
 typedef bool (*ScrollCallback)(int delta);
 
 // Events
-void SetMoveCallback(MoveCallback callback);      // common
-void SetButtonCallback(ButtonCallback callback);  // common
-void SetScrollCallback(ScrollCallback callback);  // common
+void SetMoveCallback(MoveCallback callback);     // common
+void SetButtonCallback(ButtonCallback callback); // common
+void SetScrollCallback(ScrollCallback callback); // common
 void MouseHookLoop();
 
 // State
 Point GetPosition();
-const ButtonStateMap& GetButtonStates();
+const ButtonStateMap &GetButtonStates();
 
 // Commands
 void MoveAbsolute(int x, int y);
 void MoveRelative(int x, int y);
 void Down(Button button);
 void Up(Button button);
-void Click(Button button);  // common
+void Click(Button button); // common
 void Scroll(int delta, bool horizontal = false);
 
-}  // namespace Mouse
-}  // namespace Macro
+} // namespace Mouse
+} // namespace Macro
 
-#endif  // _mouse_h_
+#endif // _mouse_h_

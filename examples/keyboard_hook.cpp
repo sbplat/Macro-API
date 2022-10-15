@@ -4,7 +4,9 @@
 #include <thread>
 
 bool keyCallback(Macro::Keyboard::Key key, Macro::Keyboard::KeyState state) {
-    std::cout << "Key: " << Macro::Keyboard::GetKeyName(key) << ", State: " << (state == Macro::Keyboard::KeyState::UP ? "UP" : "DOWN") << std::endl;
+    std::cout << "Key: " << Macro::Keyboard::GetKeyName(key)
+              << ", State: " << (state == Macro::Keyboard::KeyState::UP ? "UP" : "DOWN")
+              << std::endl;
 
     // Block the escape key.
     if (key == Macro::Keyboard::Key::ESCAPE) {

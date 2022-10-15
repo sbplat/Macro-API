@@ -8,6 +8,7 @@ namespace Macro {
 namespace Keyboard {
 
 enum Key {
+    // clang-format off
     BACKSPACE, TAB,
     CLEAR, ENTER,
     SHIFT, CTRL, ALT, PAUSE, CAPS_LOCK,
@@ -23,6 +24,7 @@ enum Key {
     COLON, PLUS, COMMA, MINUS, PERIOD, SLASH, TILDE,
     LEFT_BRACKET, BACKSLASH, RIGHT_BRACKET, QUOTE, OEM_8,
     OEM_102,
+    // clang-format on
 };
 
 struct Combo {
@@ -44,19 +46,19 @@ typedef std::map<Key, KeyState> KeyStateMap;
 typedef bool (*KeyCallback)(Key key, KeyState state);
 
 // Events
-void SetCallback(KeyCallback callback);  // common
+void SetCallback(KeyCallback callback); // common
 void KeyboardHookLoop();
 
 // State
-const KeyStateMap& GetKeyStates(); // common
+const KeyStateMap &GetKeyStates(); // common
 
 // Commands
 void Down(Key key);
 void Up(Key key);
-void Tap(Key key);                   // common
-void Type(const std::string& text);  // common
+void Tap(Key key);                  // common
+void Type(const std::string &text); // common
 
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro
 
-#endif  // _keyboard_h_
+#endif // _keyboard_h_

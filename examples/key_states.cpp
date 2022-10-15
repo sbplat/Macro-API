@@ -9,8 +9,9 @@ int main() {
 
     const Macro::Keyboard::KeyStateMap &keyStates = Macro::Keyboard::GetKeyStates();
     for (const auto &keyState : keyStates) {
-        std::cout << "Key: " << Macro::Keyboard::GetKeyName(keyState.first)
-                  << ", State: " << (keyState.second == Macro::Keyboard::KeyState::DOWN ? "DOWN" : "UP") << std::endl;
+        std::cout << "Key: " << Macro::Keyboard::GetKeyName(keyState.first) << ", State: "
+                  << (keyState.second == Macro::Keyboard::KeyState::DOWN ? "DOWN" : "UP")
+                  << std::endl;
     }
 
     std::cout << "Done!" << std::endl;

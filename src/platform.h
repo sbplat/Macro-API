@@ -5,8 +5,8 @@
     #include <windows.h>
 #elif defined(_MACRO_COCOA)
     #warning "Macro API for Cocoa is still WIP"
-    #include <CoreFoundation/CoreFoundation.h>
     #include <ApplicationServices/ApplicationServices.h>
+    #include <CoreFoundation/CoreFoundation.h>
 #elif defined(_MACRO_X11)
     #warning "Macro API for X11 is still WIP"
     #include <X11/Xlib.h>
@@ -15,4 +15,4 @@
     #error "Unknown platform"
 #endif
 
-#endif  // _platform_h_
+#endif // _platform_h_

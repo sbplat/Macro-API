@@ -18,22 +18,18 @@ KeyStateMap keyStates;
 
 KeyCallback keyCallback = nullptr;
 
-}  // namespace Internal
+} // namespace Internal
 
-void SetCallback(KeyCallback callback) {
-    Internal::keyCallback = callback;
-}
+void SetCallback(KeyCallback callback) { Internal::keyCallback = callback; }
 
-const KeyStateMap &GetKeyStates() {
-    return Internal::keyStates;
-}
+const KeyStateMap &GetKeyStates() { return Internal::keyStates; }
 
 void Tap(Key key) {
     Down(key);
     Up(key);
 }
 
-void Type(const std::string& text) {
+void Type(const std::string &text) {
     for (char c : text) {
         Combo combo = MapFromChar(c);
         if (combo.shift) {
@@ -58,5 +54,5 @@ void Type(const std::string& text) {
     }
 }
 
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro

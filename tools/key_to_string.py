@@ -27,6 +27,7 @@ namespace Macro {
 namespace Keyboard {
 
 std::string GetKeyName(Key key) {
+    // clang-format off
     switch (key) {
 """
 
@@ -36,10 +37,11 @@ for i, value in enumerate(values):
 code += """\
         default: throw std::runtime_error("Unknown key (GetKeyName): " + std::to_string(key));
     }
+    // clang-format on
 }
 
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro
 """
 
 with open("../src/common/keyboard_key_to_string.cpp", "w") as f:

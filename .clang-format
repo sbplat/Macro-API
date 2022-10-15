@@ -3,6 +3,8 @@ BasedOnStyle: LLVM
 ColumnLimit: '100'
 ConstructorInitializerIndentWidth: '4'
 ContinuationIndentWidth: '4'
+IndentCaseLabels: 'true'
+IndentPPDirectives: BeforeHash
 IndentWidth: '4'
 TabWidth: '4'
 UseTab: Never

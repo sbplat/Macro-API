@@ -7,25 +7,15 @@
 namespace Macro {
 namespace Keyboard {
 
-int MapToOSKey(Key key) {
+int MapToOSKey(Key key) {}
 
-}
+Key MapFromOSKey(int osKey) {}
 
-Key MapFromOSKey(int osKey) {
+Combo MapFromChar(char c) {}
 
-}
+void Down(Key key) {}
 
-Combo MapFromChar(char c) {
+void Up(Key key) {}
 
-}
-
-void Down(Key key) {
-
-}
-
-void Up(Key key) {
-
-}
-
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro

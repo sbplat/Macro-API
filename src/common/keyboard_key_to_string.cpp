@@ -6,6 +6,7 @@ namespace Macro {
 namespace Keyboard {
 
 std::string GetKeyName(Key key) {
+    // clang-format off
     switch (key) {
         case Key::BACKSPACE: return "BACKSPACE";
         case Key::TAB: return "TAB";
@@ -123,7 +124,8 @@ std::string GetKeyName(Key key) {
         case Key::OEM_102: return "OEM_102";
         default: throw std::runtime_error("Unknown key (GetKeyName): " + std::to_string(key));
     }
+    // clang-format on
 }
 
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro

@@ -13,7 +13,8 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
 
     // Ignore injected events.
     if (nCode >= 0 && !(keyboard->flags & LLKHF_INJECTED)) {
-        KeyState state = (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN) ? KeyState::DOWN : KeyState::UP;
+        KeyState state =
+            (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN) ? KeyState::DOWN : KeyState::UP;
 
         Key key = MapFromOSKey(keyboard->vkCode);
 
@@ -34,7 +35,8 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
 }
 
 void KeyboardHookLoop() {
-    HHOOK keyboardHook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, GetModuleHandle(NULL), 0);
+    HHOOK keyboardHook =
+        SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, GetModuleHandle(NULL), 0);
 
     if (keyboardHook == NULL) {
         throw std::runtime_error("Failed to set keyboard hook");
@@ -50,5 +52,5 @@ void KeyboardHookLoop() {
     UnhookWindowsHookEx(keyboardHook);
 }
 
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro

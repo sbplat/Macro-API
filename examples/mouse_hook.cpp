@@ -15,7 +15,8 @@ bool moveCallback(Macro::Mouse::Point position) {
 }
 
 bool buttonCallback(Macro::Mouse::Button button, Macro::Mouse::ButtonState state) {
-    std::cout << "Button: " << Macro::Mouse::GetButtonName(button) << ", " << (state == Macro::Mouse::UP ? "UP" : "DOWN") << std::endl;
+    std::cout << "Button: " << Macro::Mouse::GetButtonName(button) << ", "
+              << (state == Macro::Mouse::UP ? "UP" : "DOWN") << std::endl;
 
     // Block the right mouse button from being pressed.
     if (button == Macro::Mouse::RIGHT) {

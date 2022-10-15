@@ -8,9 +8,7 @@
 namespace Macro {
 namespace Keyboard {
 
-void KeyboardHookLoop() {
+void KeyboardHookLoop() {}
 
-}
-
-}  // namespace Keyboard
-}  // namespace Macro
+} // namespace Keyboard
+} // namespace Macro

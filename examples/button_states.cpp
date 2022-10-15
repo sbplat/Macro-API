@@ -9,8 +9,9 @@ int main() {
 
     const Macro::Mouse::ButtonStateMap &buttonStates = Macro::Mouse::GetButtonStates();
     for (const auto &buttonState : buttonStates) {
-        std::cout << "Button: " << Macro::Mouse::GetButtonName(buttonState.first)
-                  << ", State: " << (buttonState.second == Macro::Mouse::ButtonState::DOWN ? "DOWN" : "UP") << std::endl;
+        std::cout << "Button: " << Macro::Mouse::GetButtonName(buttonState.first) << ", State: "
+                  << (buttonState.second == Macro::Mouse::ButtonState::DOWN ? "DOWN" : "UP")
+                  << std::endl;
     }
 
     std::cout << "Done!" << std::endl;

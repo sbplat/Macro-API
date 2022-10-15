@@ -5,29 +5,17 @@
 namespace Macro {
 namespace Mouse {
 
-Point GetPosition() {
+Point GetPosition() {}
 
-}
+void MoveAbsolute(int x, int y) {}
 
-void MoveAbsolute(int x, int y) {
+void MoveRelative(int x, int y) {}
 
-}
+void Down(Button button) {}
 
-void MoveRelative(int x, int y) {
+void Up(Button button) {}
 
-}
+void Scroll(int delta, bool horizontal) {}
 
-void Down(Button button) {
-
-}
-
-void Up(Button button) {
-
-}
-
-void Scroll(int delta, bool horizontal) {
-
-}
-
-}  // namespace Mouse
-}  // namespace Macro
+} // namespace Mouse
+} // namespace Macro

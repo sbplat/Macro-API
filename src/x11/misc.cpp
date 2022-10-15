@@ -5,9 +5,7 @@
 namespace Macro {
 namespace Misc {
 
-void PreciseSleep(int ms) {
+void PreciseSleep(int ms) {}
 
-}
-
-}  // namespace Misc
-}  // namespace Macro
+} // namespace Misc
+} // namespace Macro
