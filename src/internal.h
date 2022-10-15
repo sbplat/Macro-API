@@ -5,7 +5,16 @@
 #include <macro/misc.h>
 #include <macro/mouse.h>
 
+#include "platform.h"
+
 namespace Macro {
+namespace Internal {
+#if defined(_MACRO_WIN32)
+#elif defined(_MACRO_COCOA)
+#elif defined(_MACRO_X11)
+    extern Display *display;
+#endif
+}  // namespace Internal
 
 namespace Keyboard {
 namespace Internal {
