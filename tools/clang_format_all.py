@@ -1,6 +1,7 @@
 import pathlib
 import subprocess
 
+clang_format = "clang-format"
 exclude = ["../build", "../test/doctest.h"]
 extensions = [".cpp", ".hpp", ".h", ".c", ".cc", ".hh", ".cxx", ".hxx"]
 
@@ -14,7 +15,11 @@ def is_excluded(path):
 
 for path in pathlib.Path("..").rglob("*"):
     if path.is_file() and path.suffix in extensions and not is_excluded(path):
-        result = subprocess.Popen(["clang-format", "-i", str(path)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        result = subprocess.Popen(
+            [clang_format, "-i", str(path)],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
         out, err = result.communicate()
         if err:
             print(f"Error formatting {path}:\n{err.decode('utf-8')}")
