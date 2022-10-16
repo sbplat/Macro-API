@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD026 -->
 # Contributing Guidelines
 
 Thank you for taking the time to contribute to this project!
