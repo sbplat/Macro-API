@@ -1,3 +1,0 @@
-[flake8]
-per-file-ignores =
-    tools/key_to_string.py: E501, # line too long
