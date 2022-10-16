@@ -1,0 +1,3 @@
+[flake8]
+per-file-ignores =
+    tools/clang_format_all.py, tools/key_to_string.py: E501
