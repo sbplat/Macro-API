@@ -20,6 +20,6 @@ for path in pathlib.Path("..").rglob("*"):
             stderr=subprocess.PIPE,
         )
         if ouput:
-            print(f"Error formatting {path}:\n{ouput}")
+            print(f"Error formatting {path}:\n{ouput.decode()}")
         else:
             print(f"Formatted {path}")
