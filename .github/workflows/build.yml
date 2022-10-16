@@ -22,6 +22,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         name: Windows build
         with:
+          name: windows-build
           path: |
             build
 
@@ -42,6 +43,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         name: macOS build
         with:
+          name: macos-build
           path: |
             build
 
@@ -62,5 +64,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         name: Linux build
         with:
+          name: linux-build
           path: |
             build
