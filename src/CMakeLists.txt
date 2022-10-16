@@ -20,13 +20,17 @@ elseif (APPLE)
     message(STATUS "Detected platform: macOS")
     target_compile_definitions(macro PRIVATE _MACRO_COCOA)
     target_sources(macro PRIVATE
-        cocoa/keyboard.cpp cocoa/mouse.cpp cocoa/misc.cpp
+        cocoa/keyboard.cpp cocoa/keyboard_events.cpp
+        cocoa/mouse.cpp cocoa/mouse_events.cpp
+        cocoa/misc.cpp
     )
 elseif (UNIX)
     message(STATUS "Detected platform: Linux")
     target_compile_definitions(macro PRIVATE _MACRO_X11)
     target_sources(macro PRIVATE
-        x11/keyboard.cpp x11/mouse.cpp x11/misc.cpp
+        x11/keyboard.cpp x11/keyboard_events.cpp
+        x11/mouse.cpp x11/mouse_events.cpp
+        x11/misc.cpp
     )
 else ()
     message(FATAL_ERROR "Unsupported platform")
