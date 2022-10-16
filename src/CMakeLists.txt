@@ -42,6 +42,10 @@ set_target_properties(macro PROPERTIES
     FOLDER "macro"
 )
 
+target_link_libraries(macro PRIVATE
+    Threads::Threads
+)
+
 target_include_directories(macro PUBLIC
     $<BUILD_INTERFACE:${MACRO_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>

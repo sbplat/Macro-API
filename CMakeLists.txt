@@ -30,6 +30,8 @@ else()
     endif()
 endif()
 
+find_package(Threads REQUIRED)
+
 add_subdirectory(src)
 
 if (BUILD_EXAMPLES)
