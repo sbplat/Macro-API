@@ -14,7 +14,9 @@ def is_excluded(path):
 
 for path in pathlib.Path("..").rglob("*"):
     if path.is_file() and path.suffix in extensions and not is_excluded(path):
-        print(path)
-        result = subprocess.run(["clang-format", "-i", str(path)])
-        if result.returncode != 0:
-            print(f"clang-format failed on {path} with return code {result.returncode}")
+        result = subprocess.Popen(["clang-format", "-i", str(path)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = result.communicate()
+        if err:
+            print(f"Error formatting {path}:\n{err.decode('utf-8')}")
+        else:
+            print(f"Formatted {path}")
