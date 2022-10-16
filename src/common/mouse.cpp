@@ -16,7 +16,7 @@ std::string GetButtonName(Button button) {
         case MIDDLE: return "Middle";
         case X1: return "X1";
         case X2: return "X2";
-        default: throw std::runtime_error("Unknown mouse button (GetButtonName): " + std::to_string(button));
+        default: throw std::runtime_error("Unknown button (GetButtonName): " + std::to_string(button));
     }
     // clang-format on
 }

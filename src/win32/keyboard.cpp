@@ -108,7 +108,7 @@ Key MapFromOSKey(int osKey) {
 }
 
 Combo MapFromChar(char c) {
-    short result = VkKeyScanA(c);
+    SHORT result = VkKeyScanA(c);
     int vkCode = result & 0xFF, shift = result >> 8;
     Key key = MapFromOSKey(vkCode);
     return Combo{key, static_cast<bool>(shift & 0x1), static_cast<bool>(shift & 0x2),
