@@ -1,8 +1,8 @@
 #include <macro/keyboard.h>
 
-#include <stdexcept>
-
 #include "../platform.h"
+
+#include <stdexcept>
 
 namespace Macro {
 namespace Keyboard {
@@ -57,8 +57,7 @@ int MapToOSKey(Key key) {
     } else if (key >= OEM_102 && key <= OEM_102) {
         vkCode = key - OEM_102 + VK_OEM_102;
     } else {
-        throw std::runtime_error(std::string("Unrecognized key (MapToOSKey): ") +
-                                 std::to_string(key));
+        throw std::runtime_error("Unrecognized key (MapToOSKey): " + std::to_string(key));
     }
 
     return vkCode;
@@ -100,8 +99,7 @@ Key MapFromOSKey(int osKey) {
     } else if (osKey >= VK_OEM_102 && osKey <= VK_OEM_102) {
         key = static_cast<Key>(osKey - VK_OEM_102 + OEM_102);
     } else {
-        throw std::runtime_error(std::string("Unrecognized key (MapFromOSKey): ") +
-                                 std::to_string(osKey));
+        throw std::runtime_error("Unrecognized key (MapFromOSKey): " + std::to_string(osKey));
     }
 
     return key;
