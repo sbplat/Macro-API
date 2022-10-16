@@ -6,13 +6,13 @@ int main() {
     Macro::Misc::Sleep(2000);
     Macro::Mouse::Click(Macro::Mouse::Button::LEFT);
     Macro::Misc::Sleep(1000);
-    Macro::Mouse::Click(Macro::Mouse::Button::RIGHT);
+    Macro::Mouse::Click(Macro::Mouse::Button::RIGHT, 50);
     Macro::Misc::Sleep(1000);
-    Macro::Mouse::Click(Macro::Mouse::Button::LEFT);
+    Macro::Mouse::Click(Macro::Mouse::Button::LEFT, 50);
     Macro::Misc::Sleep(1000);
     Macro::Mouse::Click(Macro::Mouse::Button::MIDDLE);
     Macro::Misc::Sleep(1000);
-    Macro::Mouse::Click(Macro::Mouse::Button::X1);
+    Macro::Mouse::Click(Macro::Mouse::Button::X1, 50);
     Macro::Misc::Sleep(1000);
     Macro::Mouse::Click(Macro::Mouse::Button::X2);
 

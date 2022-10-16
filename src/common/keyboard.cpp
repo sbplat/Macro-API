@@ -24,14 +24,15 @@ void SetCallback(KeyCallback callback) { Internal::keyCallback = callback; }
 
 const KeyStateMap &GetKeyStates() { return Internal::keyStates; }
 
-void Tap(Key key) {
+void Tap(Key key, int ms) {
     Down(key);
+    Misc::Sleep(ms);
     Up(key);
 }
 
-void Type(const std::string &text) {
-    for (char c : text) {
-        Combo combo = MapFromChar(c);
+void Type(const std::string &text, int ms) {
+    for (size_t i = 0; i < text.size(); ++i) {
+        Combo combo = MapFromChar(text[i]);
         if (combo.shift) {
             Down(SHIFT);
         }
@@ -41,7 +42,7 @@ void Type(const std::string &text) {
         if (combo.ctrl) {
             Down(CTRL);
         }
-        Tap(combo.key);
+        Tap(combo.key, ms);
         if (combo.shift) {
             Up(SHIFT);
         }
@@ -50,6 +51,9 @@ void Type(const std::string &text) {
         }
         if (combo.ctrl) {
             Up(CTRL);
+        }
+        if (i != text.size() - 1) {
+            Misc::Sleep(ms);
         }
     }
 }

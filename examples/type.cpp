@@ -5,7 +5,8 @@
 int main() {
     Macro::Misc::Sleep(2000);
     Macro::Keyboard::Type(
-        R"(abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 !@#$%^&*() _+-=[]\{}|;':",./<>?`~)");
+        R"(abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 !@#$%^&*() _+-=[]\{}|;':",./<>?`~)",
+        40);
 
     std::cout << "Done!" << std::endl;
     std::cin.get();

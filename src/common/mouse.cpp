@@ -45,8 +45,9 @@ void SetScrollCallback(ScrollCallback callback) { Internal::scrollCallback = cal
 
 const ButtonStateMap &GetButtonStates() { return Internal::buttonStates; }
 
-void Click(Button button) {
+void Click(Button button, int ms) {
     Down(button);
+    Misc::Sleep(ms);
     Up(button);
 }
 

@@ -55,8 +55,8 @@ const KeyStateMap &GetKeyStates();  // common
 // Commands
 void Down(Key key);
 void Up(Key key);
-void Tap(Key key);                   // common
-void Type(const std::string &text);  // common
+void Tap(Key key, int ms = 10);                   // common
+void Type(const std::string &text, int ms = 10);  // common
 
 }  // namespace Keyboard
 }  // namespace Macro

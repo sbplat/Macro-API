@@ -38,7 +38,7 @@ void MoveAbsolute(int x, int y);
 void MoveRelative(int x, int y);
 void Down(Button button);
 void Up(Button button);
-void Click(Button button);  // common
+void Click(Button button, int ms = 10);  // common
 void Scroll(int delta, bool horizontal = false);
 
 }  // namespace Mouse
