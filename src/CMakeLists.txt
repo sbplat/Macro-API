@@ -26,6 +26,7 @@ elseif (APPLE)
     )
 elseif (UNIX)
     message(STATUS "Detected platform: Linux")
+    find_package(X11 REQUIRED)
     target_compile_definitions(macro PRIVATE _MACRO_X11)
     target_sources(macro PRIVATE
         x11/keyboard.cpp x11/keyboard_events.cpp
@@ -46,9 +47,19 @@ set_target_properties(macro PROPERTIES
     FOLDER "macro"
 )
 
-target_link_libraries(macro PRIVATE
-    Threads::Threads
-)
+if (WIN32)
+    # empty
+elseif (APPLE)
+    target_link_libraries(macro PRIVATE
+        Threads::Threads
+    )
+elseif (UNIX)
+    target_link_libraries(macro PRIVATE
+        Threads::Threads
+        X11::X11
+        X11::Xtst
+    )
+endif()
 
 target_include_directories(macro PUBLIC
     $<BUILD_INTERFACE:${MACRO_SOURCE_DIR}/include>
