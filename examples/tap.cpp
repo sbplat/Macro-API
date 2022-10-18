@@ -4,9 +4,9 @@
 
 int main() {
     Macro::Misc::Sleep(2000);
-    Macro::Keyboard::Down(Macro::Keyboard::Key::SHIFT);
+    Macro::Keyboard::Down(Macro::Keyboard::Key::LSHIFT);
     Macro::Keyboard::Tap(Macro::Keyboard::Key::H, 40);
-    Macro::Keyboard::Up(Macro::Keyboard::Key::SHIFT);
+    Macro::Keyboard::Up(Macro::Keyboard::Key::LSHIFT);
 
     Macro::Keyboard::Tap(Macro::Keyboard::Key::E);
     Macro::Keyboard::Tap(Macro::Keyboard::Key::L, 40);
@@ -22,9 +22,9 @@ int main() {
     Macro::Keyboard::Tap(Macro::Keyboard::Key::L, 40);
     Macro::Keyboard::Tap(Macro::Keyboard::Key::D);
 
-    Macro::Keyboard::Down(Macro::Keyboard::Key::SHIFT);
+    Macro::Keyboard::Down(Macro::Keyboard::Key::LSHIFT);
     Macro::Keyboard::Tap(Macro::Keyboard::Key::ONE);
-    Macro::Keyboard::Up(Macro::Keyboard::Key::SHIFT);
+    Macro::Keyboard::Up(Macro::Keyboard::Key::LSHIFT);
 
     std::cout << "Done!" << std::endl;
     std::cin.get();

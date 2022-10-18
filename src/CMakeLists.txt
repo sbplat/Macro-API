@@ -12,7 +12,7 @@ if (WIN32)
     message(STATUS "Detected platform: Windows")
     target_compile_definitions(macro PRIVATE _MACRO_WIN32)
     target_sources(macro PRIVATE
-        win32/keyboard.cpp win32/keyboard_events.cpp
+        win32/keyboard.cpp win32/keyboard_events.cpp win32/key_map.cpp
         win32/mouse.cpp win32/mouse_events.cpp
         win32/misc.cpp
     )
@@ -20,7 +20,7 @@ elseif (APPLE)
     message(STATUS "Detected platform: macOS")
     target_compile_definitions(macro PRIVATE _MACRO_COCOA)
     target_sources(macro PRIVATE
-        cocoa/keyboard.cpp cocoa/keyboard_events.cpp
+        cocoa/keyboard.cpp cocoa/keyboard_events.cpp cocoa/key_map.cpp
         cocoa/mouse.cpp cocoa/mouse_events.cpp
         cocoa/misc.cpp
     )
@@ -29,7 +29,7 @@ elseif (UNIX)
     find_package(X11 REQUIRED)
     target_compile_definitions(macro PRIVATE _MACRO_X11)
     target_sources(macro PRIVATE
-        x11/keyboard.cpp x11/keyboard_events.cpp
+        x11/keyboard.cpp x11/keyboard_events.cpp x11/key_map.cpp
         x11/mouse.cpp x11/mouse_events.cpp
         x11/misc.cpp
     )
