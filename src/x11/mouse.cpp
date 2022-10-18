@@ -29,9 +29,9 @@ void MoveRelative(int x, int y) {
     XCloseDisplay(display);
 }
 
-void Down(Button button) {
-    Display *display = XOpenDisplay(NULL);
-    int buttonCode;
+static int ButtonToX11ButtonCode(Button button) {
+    int buttonCode = 0;
+
     switch (button) {
         case LEFT:
             buttonCode = 1;
@@ -49,30 +49,20 @@ void Down(Button button) {
             buttonCode = 9;
             break;
     }
+
+    return buttonCode;
+}
+
+void Down(Button button) {
+    Display *display = XOpenDisplay(NULL);
+    int buttonCode = ButtonToX11ButtonCode(button);
     XTestFakeButtonEvent(display, buttonCode, True, 0);
     XCloseDisplay(display);
 }
 
 void Up(Button button) {
     Display *display = XOpenDisplay(NULL);
-    int buttonCode;
-    switch (button) {
-        case LEFT:
-            buttonCode = 1;
-            break;
-        case RIGHT:
-            buttonCode = 3;
-            break;
-        case MIDDLE:
-            buttonCode = 2;
-            break;
-        case X1:
-            buttonCode = 8;
-            break;
-        case X2:
-            buttonCode = 9;
-            break;
-    }
+    int buttonCode = ButtonToX11ButtonCode(button);
     XTestFakeButtonEvent(display, buttonCode, False, 0);
     XCloseDisplay(display);
 }
