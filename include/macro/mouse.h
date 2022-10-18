@@ -21,7 +21,7 @@ typedef std::map<Button, ButtonState> ButtonStateMap;
 
 typedef bool (*MoveCallback)(Point position);
 typedef bool (*ButtonCallback)(Button button, ButtonState state);
-typedef bool (*ScrollCallback)(int delta);
+typedef bool (*ScrollCallback)(int delta, bool horizontal);
 
 // Events
 void SetMoveCallback(MoveCallback callback);      // common

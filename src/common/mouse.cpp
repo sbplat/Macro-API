@@ -23,13 +23,28 @@ std::string GetButtonName(Button button) {
 
 namespace Internal {
 
+ButtonStateMap buttonStates;
+
+bool MoveCb(Point position) {
+    // Reserved for future use.
+    (void)position;
+
+    return false;
+}
+
 bool ButtonCb(Button button, ButtonState state) {
     Internal::buttonStates[button] = state;
 
     return false;
 }
 
-ButtonStateMap buttonStates;
+bool ScrollCb(int delta, bool isHorizontal) {
+    // Reserved for future use.
+    (void)delta;
+    (void)isHorizontal;
+
+    return false;
+}
 
 MoveCallback moveCallback = nullptr;
 ButtonCallback buttonCallback = nullptr;
