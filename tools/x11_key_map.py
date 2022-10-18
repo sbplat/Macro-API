@@ -128,7 +128,8 @@ for key, os_key in key_map:
     code += f"        case Key::{key}: return {os_key};\n"
 
 code += """\
-        default: throw std::runtime_error("Unrecognized key (MapToOSKey): " + std::to_string(key));
+        default:
+            throw std::runtime_error("Unrecognized key (MapToOSKey): " + std::to_string(key));
     }
     // clang-format on
 }
@@ -142,7 +143,8 @@ for key, os_key in key_map:
     code += f"        case {os_key}: return Key::{key};\n"
 
 code += """\
-        default: throw std::runtime_error("Unrecognized key (MapFromOSKey): " + std::to_string(osKey));
+        default:
+            throw std::runtime_error("Unrecognized key (MapFromOSKey): " + std::to_string(osKey));
     }
     // clang-format on
 }

@@ -118,7 +118,8 @@ int MapToOSKey(Key key) {
         case Key::BACKSLASH: return XK_backslash;
         case Key::RIGHT_BRACKET: return XK_bracketright;
         case Key::QUOTE: return XK_apostrophe;
-        default: throw std::runtime_error("Unrecognized key (MapToOSKey): " + std::to_string(key));
+        default:
+            throw std::runtime_error("Unrecognized key (MapToOSKey): " + std::to_string(key));
     }
     // clang-format on
 }
@@ -234,7 +235,8 @@ Key MapFromOSKey(int osKey) {
         case XK_backslash: return Key::BACKSLASH;
         case XK_bracketright: return Key::RIGHT_BRACKET;
         case XK_apostrophe: return Key::QUOTE;
-        default: throw std::runtime_error("Unrecognized key (MapFromOSKey): " + std::to_string(osKey));
+        default:
+            throw std::runtime_error("Unrecognized key (MapFromOSKey): " + std::to_string(osKey));
     }
     // clang-format on
 }
