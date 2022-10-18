@@ -17,12 +17,25 @@ LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
         bool shouldBlock = false;
 
         if (wParam == WM_MOUSEMOVE) {
+            Point point{mouse->pt.x, mouse->pt.y};
+
+            if (Internal::MoveCb(point)) {
+                return 1;
+            }
+
             if (Internal::moveCallback != nullptr) {
-                shouldBlock = Internal::moveCallback({mouse->pt.x, mouse->pt.y});
+                shouldBlock = Internal::moveCallback(point);
             }
         } else if (wParam == WM_MOUSEWHEEL || wParam == WM_MOUSEHWHEEL) {
+            int delta = GET_WHEEL_DELTA_WPARAM(mouse->mouseData);
+            bool isHorizontal = (wParam == WM_MOUSEHWHEEL);
+
+            if (Internal::ScrollCb(delta, isHorizontal)) {
+                return 1;
+            }
+
             if (Internal::scrollCallback != nullptr) {
-                shouldBlock = Internal::scrollCallback(GET_WHEEL_DELTA_WPARAM(mouse->mouseData));
+                shouldBlock = Internal::scrollCallback(delta, isHorizontal);
             }
         } else {
             ButtonState state = (wParam == WM_LBUTTONDOWN || wParam == WM_RBUTTONDOWN ||

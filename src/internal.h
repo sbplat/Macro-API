@@ -31,9 +31,11 @@ extern KeyCallback keyCallback;
 namespace Mouse {
 namespace Internal {
 
-bool ButtonCb(Button button, ButtonState state);
-
 extern ButtonStateMap buttonStates;
+
+bool MoveCb(Point position);
+bool ButtonCb(Button button, ButtonState state);
+bool ScrollCb(int delta, bool isHorizontal);
 
 extern MoveCallback moveCallback;
 extern ButtonCallback buttonCallback;
