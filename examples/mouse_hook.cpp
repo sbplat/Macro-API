@@ -27,7 +27,8 @@ bool buttonCallback(Macro::Mouse::Button button, Macro::Mouse::ButtonState state
 }
 
 bool scrollCallback(int delta, bool isHorizontal) {
-    std::cout << "Scroll " << (isHorizontal ? "horizontal": "vertical") << ": " << delta << std::endl;
+    std::cout << "Scroll: " << delta << ", " << (isHorizontal ? "Horizontal" : "Vertical")
+              << std::endl;
 
     // Block scrolling down vertically.
     if (delta < 0 && !isHorizontal) {
