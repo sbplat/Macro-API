@@ -138,12 +138,7 @@ Key MapFromOSKey(int osKey) {
     switch (osKey) {
 """
 
-used_keys = set()
-
 for key, os_key in key_map:
-    #if os_key in used_keys:
-        #continue
-    used_keys.add(os_key)
     code += f"        case {os_key}: return Key::{key};\n"
 
 code += """\
