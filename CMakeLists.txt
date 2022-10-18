@@ -32,7 +32,9 @@ else()
     endif()
 endif()
 
-find_package(Threads REQUIRED)
+if (NOT WIN32)
+    find_package(Threads REQUIRED)
+endif()
 
 add_subdirectory(src)
 
