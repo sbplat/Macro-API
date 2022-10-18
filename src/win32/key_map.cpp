@@ -25,37 +25,37 @@ int MapToOSKey(Key key) {
     int vkCode;
 
     if (key >= BACKSPACE && key <= TAB) {
-        vkCode = key - BACKSPACE + VK_BACK;
+        vkCode = key - Key::BACKSPACE + VK_BACK;
     } else if (key >= CLEAR && key <= ENTER) {
-        vkCode = key - CLEAR + VK_CLEAR;
+        vkCode = key - Key::CLEAR + VK_CLEAR;
     } else if (key >= PAUSE && key <= CAPS_LOCK) {
-        vkCode = key - PAUSE + VK_PAUSE;
+        vkCode = key - Key::PAUSE + VK_PAUSE;
     } else if (key >= ESCAPE && key <= ESCAPE) {
-        vkCode = key - ESCAPE + VK_ESCAPE;
+        vkCode = key - Key::ESCAPE + VK_ESCAPE;
     } else if (key >= SPACE && key <= SELECT) {
-        vkCode = key - SPACE + VK_SPACE;
+        vkCode = key - Key::SPACE + VK_SPACE;
     } else if (key >= EXECUTE && key <= HELP) {
-        vkCode = key - EXECUTE + VK_EXECUTE;
+        vkCode = key - Key::EXECUTE + VK_EXECUTE;
     } else if (key >= ZERO && key <= NINE) {
-        vkCode = key - ZERO + VK_KEY_0;
+        vkCode = key - Key::ZERO + VK_KEY_0;
     } else if (key >= A && key <= Z) {
-        vkCode = key - A + VK_KEY_A;
+        vkCode = key - Key::A + VK_KEY_A;
     } else if (key >= NUMPAD0 && key <= NUMPAD9) {
-        vkCode = key - NUMPAD0 + VK_NUMPAD0;
+        vkCode = key - Key::NUMPAD0 + VK_NUMPAD0;
     } else if (key >= MULTIPLY && key <= DIVIDE) {
-        vkCode = key - MULTIPLY + VK_MULTIPLY;
+        vkCode = key - Key::MULTIPLY + VK_MULTIPLY;
     } else if (key >= F1 && key <= F12) {
-        vkCode = key - F1 + VK_F1;
+        vkCode = key - Key::F1 + VK_F1;
     } else if (key >= NUM_LOCK && key <= SCROLL_LOCK) {
-        vkCode = key - NUM_LOCK + VK_NUMLOCK;
+        vkCode = key - Key::NUM_LOCK + VK_NUMLOCK;
     } else if (key >= LSHIFT && key <= RALT) {
-        vkCode = key - LSHIFT + VK_LSHIFT;
+        vkCode = key - Key::LSHIFT + VK_LSHIFT;
     } else if (key >= LSUPER && key <= MENU) {
-        vkCode = key - LSUPER + VK_LWIN;
+        vkCode = key - Key::LSUPER + VK_LWIN;
     } else if (key >= COLON && key <= TILDE) {
-        vkCode = key - COLON + VK_OEM_1;
+        vkCode = key - Key::COLON + VK_OEM_1;
     } else if (key >= LEFT_BRACKET && key <= QUOTE) {
-        vkCode = key - LEFT_BRACKET + VK_OEM_4;
+        vkCode = key - Key::LEFT_BRACKET + VK_OEM_4;
     } else {
         throw std::runtime_error("Unrecognized key (MapToOSKey): " + std::to_string(key));
     }
@@ -67,37 +67,37 @@ Key MapFromOSKey(int osKey) {
     Key key;
 
     if (osKey >= VK_BACK && osKey <= VK_TAB) {
-        key = static_cast<Key>(osKey - VK_BACK + BACKSPACE);
+        key = static_cast<Key>(osKey - VK_BACK + Key::BACKSPACE);
     } else if (osKey >= VK_CLEAR && osKey <= VK_RETURN) {
-        key = static_cast<Key>(osKey - VK_CLEAR + CLEAR);
+        key = static_cast<Key>(osKey - VK_CLEAR + Key::CLEAR);
     } else if (osKey >= VK_PAUSE && osKey <= VK_CAPITAL) {
-        key = static_cast<Key>(osKey - VK_PAUSE + PAUSE);
+        key = static_cast<Key>(osKey - VK_PAUSE + Key::PAUSE);
     } else if (osKey >= VK_ESCAPE && osKey <= VK_ESCAPE) {
-        key = static_cast<Key>(osKey - VK_ESCAPE + ESCAPE);
+        key = static_cast<Key>(osKey - VK_ESCAPE + Key::ESCAPE);
     } else if (osKey >= VK_SPACE && osKey <= VK_SELECT) {
-        key = static_cast<Key>(osKey - VK_SPACE + SPACE);
+        key = static_cast<Key>(osKey - VK_SPACE + Key::SPACE);
     } else if (osKey >= VK_EXECUTE && osKey <= VK_HELP) {
-        key = static_cast<Key>(osKey - VK_EXECUTE + EXECUTE);
+        key = static_cast<Key>(osKey - VK_EXECUTE + Key::EXECUTE);
     } else if (osKey >= VK_KEY_0 && osKey <= VK_KEY_9) {
-        key = static_cast<Key>(osKey - VK_KEY_0 + ZERO);
+        key = static_cast<Key>(osKey - VK_KEY_0 + Key::ZERO);
     } else if (osKey >= VK_KEY_A && osKey <= VK_KEY_Z) {
-        key = static_cast<Key>(osKey - VK_KEY_A + A);
+        key = static_cast<Key>(osKey - VK_KEY_A + Key::A);
     } else if (osKey >= VK_NUMPAD0 && osKey <= VK_NUMPAD9) {
-        key = static_cast<Key>(osKey - VK_NUMPAD0 + NUMPAD0);
+        key = static_cast<Key>(osKey - VK_NUMPAD0 + Key::NUMPAD0);
     } else if (osKey >= VK_MULTIPLY && osKey <= VK_DIVIDE) {
-        key = static_cast<Key>(osKey - VK_MULTIPLY + MULTIPLY);
+        key = static_cast<Key>(osKey - VK_MULTIPLY + Key::MULTIPLY);
     } else if (osKey >= VK_F1 && osKey <= VK_F12) {
-        key = static_cast<Key>(osKey - VK_F1 + F1);
+        key = static_cast<Key>(osKey - VK_F1 + Key::F1);
     } else if (osKey >= VK_NUMLOCK && osKey <= VK_SCROLL) {
-        key = static_cast<Key>(osKey - VK_NUMLOCK + NUM_LOCK);
+        key = static_cast<Key>(osKey - VK_NUMLOCK + Key::NUM_LOCK);
     } else if (osKey >= VK_LSHIFT && osKey <= VK_RMENU) {
-        key = static_cast<Key>(osKey - VK_LSHIFT + LSHIFT);
+        key = static_cast<Key>(osKey - VK_LSHIFT + Key::LSHIFT);
     } else if (osKey >= VK_LWIN && osKey <= VK_APPS) {
-        key = static_cast<Key>(osKey - VK_LWIN + LSUPER);
+        key = static_cast<Key>(osKey - VK_LWIN + Key::LSUPER);
     } else if (osKey >= VK_OEM_1 && osKey <= VK_OEM_3) {
-        key = static_cast<Key>(osKey - VK_OEM_1 + COLON);
+        key = static_cast<Key>(osKey - VK_OEM_1 + Key::COLON);
     } else if (osKey >= VK_OEM_4 && osKey <= VK_OEM_7) {
-        key = static_cast<Key>(osKey - VK_OEM_4 + LEFT_BRACKET);
+        key = static_cast<Key>(osKey - VK_OEM_4 + Key::LEFT_BRACKET);
     } else {
         throw std::runtime_error("Unrecognized key (MapFromOSKey): " + std::to_string(osKey));
     }
