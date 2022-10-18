@@ -34,23 +34,23 @@ void Type(const std::string &text, int ms) {
     for (size_t i = 0; i < text.size(); ++i) {
         Combo combo = MapFromChar(text[i]);
         if (combo.shift) {
-            Down(SHIFT);
+            Down(LSHIFT);
         }
         if (combo.alt) {
-            Down(ALT);
+            Down(LALT);
         }
         if (combo.ctrl) {
-            Down(CTRL);
+            Down(LCTRL);
         }
         Tap(combo.key, ms);
         if (combo.shift) {
-            Up(SHIFT);
+            Up(LSHIFT);
         }
         if (combo.alt) {
-            Up(ALT);
+            Up(LALT);
         }
         if (combo.ctrl) {
-            Up(CTRL);
+            Up(LCTRL);
         }
         if (i != text.size() - 1) {
             Misc::Sleep(ms);

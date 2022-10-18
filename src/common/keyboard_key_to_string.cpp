@@ -12,9 +12,6 @@ std::string GetKeyName(Key key) {
         case Key::TAB: return "TAB";
         case Key::CLEAR: return "CLEAR";
         case Key::ENTER: return "ENTER";
-        case Key::SHIFT: return "SHIFT";
-        case Key::CTRL: return "CTRL";
-        case Key::ALT: return "ALT";
         case Key::PAUSE: return "PAUSE";
         case Key::CAPS_LOCK: return "CAPS_LOCK";
         case Key::ESCAPE: return "ESCAPE";
@@ -28,7 +25,6 @@ std::string GetKeyName(Key key) {
         case Key::RIGHT_ARROW: return "RIGHT_ARROW";
         case Key::DOWN_ARROW: return "DOWN_ARROW";
         case Key::SELECT: return "SELECT";
-        case Key::PRINT: return "PRINT";
         case Key::EXECUTE: return "EXECUTE";
         case Key::PRINT_SCREEN: return "PRINT_SCREEN";
         case Key::INSERT: return "INSERT";
@@ -120,8 +116,6 @@ std::string GetKeyName(Key key) {
         case Key::BACKSLASH: return "BACKSLASH";
         case Key::RIGHT_BRACKET: return "RIGHT_BRACKET";
         case Key::QUOTE: return "QUOTE";
-        case Key::OEM_8: return "OEM_8";
-        case Key::OEM_102: return "OEM_102";
         default: throw std::runtime_error("Unknown key (GetKeyName): " + std::to_string(key));
     }
     // clang-format on
