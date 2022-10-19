@@ -8,13 +8,25 @@
 #include "platform.h"
 
 namespace Macro {
-namespace Internal {
+
+class _Context {
 #if defined(_MACRO_WIN32)
+
 #elif defined(_MACRO_COCOA)
+
 #elif defined(_MACRO_X11)
-extern Display *display;
+  protected:
+    Display *display;
+
+  public:
+    Display *GetDisplay();
+
+    _Context();
+    ~_Context();
 #endif
-}  // namespace Internal
+};
+
+extern _Context ctx;
 
 namespace Keyboard {
 namespace Internal {
