@@ -1,32 +1,29 @@
 #include <macro/mouse.h>
 
+#include "../internal.h"
 #include "../platform.h"
 
 namespace Macro {
 namespace Mouse {
 
 Point GetPosition() {
-    Display *display = XOpenDisplay(NULL);
-    Window root_window = DefaultRootWindow(display), child;
-    Point root, win;
+    Window root_window = DefaultRootWindow(ctx.GetDisplay()), child_window;
+    Point root_pt, win_pt;
     unsigned int mask;
-    XQueryPointer(display, root_window, &root_window, &child, &root.x, &root.y, &win.x, &win.y,
-                  &mask);
-    XCloseDisplay(display);
-    return root;
+    XQueryPointer(ctx.GetDisplay(), root_window, &root_window, &child_window, &root_pt.x,
+                  &root_pt.y, &win_pt.x, &win_pt.y, &mask);
+    return root_pt;
 }
 
 void MoveAbsolute(int x, int y) {
-    Display *display = XOpenDisplay(NULL);
-    int screen = DefaultScreen(display);
-    XTestFakeMotionEvent(display, screen, x, y, 0);
-    XCloseDisplay(display);
+    int screen = -1;  // The screen that the pointer is on
+    XTestFakeMotionEvent(ctx.GetDisplay(), screen, x, y, CurrentTime);
+    XFlush(ctx.GetDisplay());
 }
 
 void MoveRelative(int x, int y) {
-    Display *display = XOpenDisplay(NULL);
-    XTestFakeRelativeMotionEvent(display, x, y, 0);
-    XCloseDisplay(display);
+    XTestFakeRelativeMotionEvent(ctx.GetDisplay(), x, y, CurrentTime);
+    XFlush(ctx.GetDisplay());
 }
 
 static int ButtonToX11ButtonCode(Button button) {
@@ -54,22 +51,19 @@ static int ButtonToX11ButtonCode(Button button) {
 }
 
 void Down(Button button) {
-    Display *display = XOpenDisplay(NULL);
     int buttonCode = ButtonToX11ButtonCode(button);
-    XTestFakeButtonEvent(display, buttonCode, True, 0);
-    XCloseDisplay(display);
+    XTestFakeButtonEvent(ctx.GetDisplay(), buttonCode, true, CurrentTime);
+    XFlush(ctx.GetDisplay());
 }
 
 void Up(Button button) {
-    Display *display = XOpenDisplay(NULL);
     int buttonCode = ButtonToX11ButtonCode(button);
-    XTestFakeButtonEvent(display, buttonCode, False, 0);
-    XCloseDisplay(display);
+    XTestFakeButtonEvent(ctx.GetDisplay(), buttonCode, false, CurrentTime);
+    XFlush(ctx.GetDisplay());
 }
 
 void Scroll(int delta, bool horizontal) {
-    Display *display = XOpenDisplay(NULL);
-    int absoluteDelta = abs(delta);
+    int absoluteDelta = std::abs(delta);
     int button;
     if (horizontal) {
         button = delta > 0 ? 7 : 6;
@@ -77,10 +71,11 @@ void Scroll(int delta, bool horizontal) {
         button = delta > 0 ? 4 : 5;
     }
     for (int i = 0; i < absoluteDelta; i++) {
-        XTestFakeButtonEvent(display, button, True, 0);
-        XTestFakeButtonEvent(display, button, False, 0);
+        XTestFakeButtonEvent(ctx.GetDisplay(), button, true, CurrentTime);
+        XSync(ctx.GetDisplay(), false);
+        XTestFakeButtonEvent(ctx.GetDisplay(), button, false, CurrentTime);
+        XFlush(ctx.GetDisplay());
     }
-    XCloseDisplay(display);
 }
 
 }  // namespace Mouse
