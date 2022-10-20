@@ -3,6 +3,7 @@
 
 #include <cstring>
 #include <stdexcept>
+#include <string>
 
 namespace Macro {
 
@@ -23,7 +24,7 @@ template <typename ValueType, typename KeyType, int ArraySize> class States {
     inline void fill(ValueType value) { memset(states, value, size * sizeof(ValueType)); }
 
     States() {}
-    States(ValueType value) { fill(value); }
+    explicit States(ValueType value) { fill(value); }
 
     ~States() {}
 
