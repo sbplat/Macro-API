@@ -1,5 +1,6 @@
 link_libraries(macro)
 
+add_executable(auto_clicker auto_clicker.cpp)
 add_executable(button_states button_states.cpp)
 add_executable(click click.cpp)
 add_executable(key_states key_states.cpp)
@@ -14,6 +15,7 @@ add_executable(tap tap.cpp)
 add_executable(type type.cpp)
 
 if (NOT WIN32)
+    target_link_libraries(auto_clicker Threads::Threads)
     target_link_libraries(keyboard_hook Threads::Threads)
     target_link_libraries(mouse_hook Threads::Threads)
 endif()
