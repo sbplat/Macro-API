@@ -7,10 +7,13 @@ int main() {
     std::thread(Macro::Mouse::MouseHookLoop).detach();
     Macro::Misc::Sleep(2000);
 
-    const Macro::Mouse::ButtonStateMap &buttonStates = Macro::Mouse::GetButtonStates();
-    for (const auto &buttonState : buttonStates) {
-        std::cout << "Button: " << Macro::Mouse::GetButtonName(buttonState.first) << ", State: "
-                  << (buttonState.second == Macro::Mouse::ButtonState::DOWN ? "DOWN" : "UP")
+    const Macro::Mouse::ButtonStates &buttonStates = Macro::Mouse::GetButtonStates();
+
+    for (Macro::Mouse::Button button = Macro::Mouse::Button::LEFT;
+         button <= Macro::Mouse::Button::X2;
+         button = static_cast<Macro::Mouse::Button>(button + 1)) {
+        std::cout << "Button: " << Macro::Mouse::GetButtonName(button) << ", State: "
+                  << (buttonStates[button] == Macro::Mouse::ButtonState::DOWN ? "DOWN" : "UP")
                   << std::endl;
     }
 

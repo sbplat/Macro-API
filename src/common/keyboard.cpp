@@ -14,7 +14,7 @@ bool KeyCb(Key key, KeyState state) {
     return false;
 }
 
-KeyStateMap keyStates;
+KeyStates keyStates(KeyState::UP);
 
 KeyCallback keyCallback = nullptr;
 
@@ -22,7 +22,7 @@ KeyCallback keyCallback = nullptr;
 
 void SetCallback(KeyCallback callback) { Internal::keyCallback = callback; }
 
-const KeyStateMap &GetKeyStates() { return Internal::keyStates; }
+const KeyStates &GetKeyStates() { return Internal::keyStates; }
 
 void Tap(Key key, int ms) {
     Down(key);

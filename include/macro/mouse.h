@@ -1,7 +1,8 @@
 #ifndef _mouse_h_
 #define _mouse_h_
 
-#include <map>
+#include "states.h"
+
 #include <string>
 
 namespace Macro {
@@ -17,7 +18,7 @@ struct Point {
     int y;
 };
 
-typedef std::map<Button, ButtonState> ButtonStateMap;
+typedef States<ButtonState, Button, Button::X2 + 1> ButtonStates;
 
 typedef bool (*MoveCallback)(Point position);
 typedef bool (*ButtonCallback)(Button button, ButtonState state);
@@ -32,7 +33,7 @@ void MouseHookLoop();
 // State
 Point GetPosition();
 ButtonState GetButtonState(Button button);  // common
-const ButtonStateMap &GetButtonStates();    // common
+const ButtonStates &GetButtonStates();      // common
 
 // Commands
 void MoveAbsolute(int x, int y);
