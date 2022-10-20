@@ -1,7 +1,8 @@
 #ifndef _keyboard_h_
 #define _keyboard_h_
 
-#include <map>
+#include "states.h"
+
 #include <string>
 
 namespace Macro {
@@ -41,7 +42,7 @@ Combo MapFromChar(char c);
 
 enum KeyState { UP, DOWN };
 
-typedef std::map<Key, KeyState> KeyStateMap;
+typedef States<KeyState, Key, Key::QUOTE + 1> KeyStates;
 
 typedef bool (*KeyCallback)(Key key, KeyState state);
 
@@ -50,8 +51,8 @@ void SetCallback(KeyCallback callback);  // common
 void KeyboardHookLoop();
 
 // State
-KeyState GetKeyState(Key key);      // common
-const KeyStateMap &GetKeyStates();  // common
+KeyState GetKeyState(Key key);    // common
+const KeyStates &GetKeyStates();  // common
 
 // Commands
 void Down(Key key);

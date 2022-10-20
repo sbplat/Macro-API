@@ -33,7 +33,7 @@ namespace Internal {
 
 bool KeyCb(Key key, KeyState state);
 
-extern KeyStateMap keyStates;
+extern KeyStates keyStates;
 
 extern KeyCallback keyCallback;
 
@@ -43,7 +43,7 @@ extern KeyCallback keyCallback;
 namespace Mouse {
 namespace Internal {
 
-extern ButtonStateMap buttonStates;
+extern ButtonStates buttonStates;
 
 bool MoveCb(Point position);
 bool ButtonCb(Button button, ButtonState state);

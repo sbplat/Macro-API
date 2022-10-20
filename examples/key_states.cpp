@@ -7,10 +7,12 @@ int main() {
     std::thread(Macro::Keyboard::KeyboardHookLoop).detach();
     Macro::Misc::Sleep(2000);
 
-    const Macro::Keyboard::KeyStateMap &keyStates = Macro::Keyboard::GetKeyStates();
-    for (const auto &keyState : keyStates) {
-        std::cout << "Key: " << Macro::Keyboard::GetKeyName(keyState.first) << ", State: "
-                  << (keyState.second == Macro::Keyboard::KeyState::DOWN ? "DOWN" : "UP")
+    const Macro::Keyboard::KeyStates &keyStates = Macro::Keyboard::GetKeyStates();
+
+    for (Macro::Keyboard::Key key = Macro::Keyboard::Key::BACKSPACE;
+         key <= Macro::Keyboard::Key::QUOTE; key = static_cast<Macro::Keyboard::Key>(key + 1)) {
+        std::cout << "Key: " << Macro::Keyboard::GetKeyName(key) << ", State: "
+                  << (keyStates[key] == Macro::Keyboard::KeyState::DOWN ? "DOWN" : "UP")
                   << std::endl;
     }
 
