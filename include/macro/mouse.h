@@ -31,7 +31,8 @@ void MouseHookLoop();
 
 // State
 Point GetPosition();
-const ButtonStateMap &GetButtonStates();
+ButtonState GetButtonState(Button button);  // common
+const ButtonStateMap &GetButtonStates();    // common
 
 // Commands
 void MoveAbsolute(int x, int y);

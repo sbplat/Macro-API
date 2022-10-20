@@ -50,6 +50,7 @@ void SetCallback(KeyCallback callback);  // common
 void KeyboardHookLoop();
 
 // State
+KeyState GetKeyState(Key key);      // common
 const KeyStateMap &GetKeyStates();  // common
 
 // Commands
