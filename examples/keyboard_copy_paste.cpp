@@ -3,23 +3,21 @@
 #include <iostream>
 
 int main() {
-    
-    std::cout << "Copy Me Once and Paste Me Twice!";
+    std::cout << "Copy me and paste me!" << std::endl;
 
+    // Select all text (Ctrl+A)
     Macro::Keyboard::Down(Macro::Keyboard::Key::LCTRL);
-    Macro::Keyboard::Tap(Macro::Keyboard::Key::A);
+    Macro::Keyboard::Tap(Macro::Keyboard::Key::A, 40);
     Macro::Keyboard::Up(Macro::Keyboard::Key::LCTRL);
 
+    // Copy the selected text (Ctrl+C)
     Macro::Keyboard::Down(Macro::Keyboard::Key::LCTRL);
-    Macro::Keyboard::Tap(Macro::Keyboard::Key::INSERT, 40);
+    Macro::Keyboard::Tap(Macro::Keyboard::Key::C, 40);
     Macro::Keyboard::Up(Macro::Keyboard::Key::LCTRL);
 
     Macro::Misc::Sleep(2000);
 
-    Macro::Keyboard::Down(Macro::Keyboard::Key::LSHIFT);
-    Macro::Keyboard::Tap(Macro::Keyboard::Key::INSERT, 40);
-    Macro::Keyboard::Up(Macro::Keyboard::Key::LSHIFT);
-
+    // Paste the copied text again (Ctrl+V)
     Macro::Keyboard::Down(Macro::Keyboard::Key::LCTRL);
     Macro::Keyboard::Tap(Macro::Keyboard::Key::V, 40);
     Macro::Keyboard::Up(Macro::Keyboard::Key::LCTRL);
