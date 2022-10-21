@@ -4,7 +4,6 @@
 
 int main() {
     Macro::Misc::Sleep(2000);
-    
     std::cout << "Copy Me Once and Paste Me Twice!";
 
     Macro::Misc::Sleep(400);
