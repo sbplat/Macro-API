@@ -47,10 +47,10 @@ if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()
 
-if (BUILD_TEST_SUITE)
+if(BUILD_TEST_SUITE)
     add_subdirectory(test)
 endif()
 
-if (BUILD_DOC)
+if(BUILD_DOC)
     add_subdirectory(doc)
 endif()
