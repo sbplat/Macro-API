@@ -11,16 +11,21 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - run: |
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Build
+        run: |
           mkdir build && cd build
           cmake ..
           cmake --build .
           cd test
           ctest -C Debug
 
-      - uses: actions/upload-artifact@v3
-        name: Windows build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: windows-build
           path: |
@@ -32,8 +37,13 @@ jobs:
     continue-on-error: true # macOS support is still WIP
 
     steps:
-      - uses: actions/checkout@v3
-      - run: |
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install dependencies and build
+        run: |
           brew install doxygen
           mkdir build && cd build
           cmake ..
@@ -41,8 +51,8 @@ jobs:
           #cd test
           #ctest -C Debug
 
-      - uses: actions/upload-artifact@v3
-        name: macOS build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: macos-build
           path: |
@@ -54,8 +64,13 @@ jobs:
     continue-on-error: true # Linux support is still WIP
 
     steps:
-      - uses: actions/checkout@v3
-      - run: |
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install dependencies and build
+        run: |
           sudo apt-get install doxygen libx11-dev libxtst-dev -y
           mkdir build && cd build
           cmake ..
@@ -63,8 +78,8 @@ jobs:
           cd test
           ctest -C Debug
 
-      - uses: actions/upload-artifact@v3
-        name: Linux build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: linux-build
           path: |
