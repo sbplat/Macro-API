@@ -34,6 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
+          sudo apt-get install doxygen
           mkdir build && cd build
           cmake ..
           cmake --build .
@@ -55,7 +56,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          sudo apt-get install libx11-dev libxtst-dev -y
+          sudo apt-get install doxygen libx11-dev libxtst-dev -y
           mkdir build && cd build
           cmake ..
           cmake --build .
