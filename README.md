@@ -1,7 +1,5 @@
 <h1 align="center">
-  <br>
-  Macro API
-  <br>
+  <img src="https://raw.githubusercontent.com/Glowstik-YT/Macro-API/main/assets/MacroAPI.png" width="250" title="Macro-API Logo">
 </h1>
 
 <h4 align="center">Cross platform Macro API for C++.</h4>
