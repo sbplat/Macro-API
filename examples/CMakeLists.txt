@@ -15,7 +15,7 @@ add_executable(sleep sleep.cpp)
 add_executable(tap tap.cpp)
 add_executable(type type.cpp)
 
-if (NOT WIN32)
+if(NOT WIN32)
     target_link_libraries(auto_clicker Threads::Threads)
     target_link_libraries(keyboard_hook Threads::Threads)
     target_link_libraries(mouse_hook Threads::Threads)
