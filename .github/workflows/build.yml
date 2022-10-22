@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          sudo apt-get install doxygen
+          brew install doxygen
           mkdir build && cd build
           cmake ..
           cmake --build .
