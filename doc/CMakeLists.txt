@@ -1,0 +1,20 @@
+find_package(Doxygen REQUIRED)
+
+set(DOXYGEN_INPUT_DIR ${PROJECT_SOURCE_DIR})
+set(DOXYGEN_OUTPUT_DIR ${PROJECT_BINARY_DIR}/doc)
+
+set(DOXYGEN_INDEX_FILE ${DOXYGEN_OUTPUT_DIR}/html/index.html)
+set(DOXYFILE_IN ${DOXYGEN_INPUT_DIR}/doc/Doxyfile.in)
+set(DOXYFILE_OUT ${DOXYGEN_OUTPUT_DIR}/Doxyfile)
+
+configure_file(${DOXYFILE_IN} ${DOXYFILE_OUT} @ONLY)
+
+add_custom_command(OUTPUT ${DOXYGEN_INDEX_FILE}
+    DEPENDS ${SOURCES}
+    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYFILE_OUT}
+    WORKING_DIRECTORY ${DOXYGEN_OUTPUT_DIR}
+    COMMENT "Generating API documentation with Doxygen"
+    VERBATIM
+)
+
+add_custom_target(doc_doxygen ALL DEPENDS ${DOXYGEN_INDEX_FILE})

@@ -12,8 +12,8 @@ endif()
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(BUILD_EXAMPLES "Build examples" ON)
-option(BUILD_TESTS "Build tests" ON)
-option(BUILD_DOCS "Build documentation" ON)
+option(BUILD_TEST_SUITE "Build test suite" ON)
+option(BUILD_DOC "Build API documentation" ON)
 option(MACRO_INSTALL "Generate the install target" ON)
 
 set(MACRO_LIBRARY_TYPE "${MACRO_LIBRARY_TYPE}" CACHE STRING
@@ -42,10 +42,10 @@ if (BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()
 
-if (BUILD_TESTS)
+if (BUILD_TEST_SUITE)
     add_subdirectory(test)
 endif()
 
-if (BUILD_DOCS)
-    # todo
+if (BUILD_DOC)
+    add_subdirectory(doc)
 endif()
