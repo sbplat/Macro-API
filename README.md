@@ -1,5 +1,9 @@
 <h1 align="center">
   <br>
+  <a href="https://github.com/sbplat/Macro-API">
+    <img src="/assets/logo.png" alt="Macro API" width="200">
+  </a>
+  <br>
   Macro API
   <br>
 </h1>
