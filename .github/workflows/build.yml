@@ -71,7 +71,7 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          sudo apt-get install doxygen libx11-dev libxtst-dev -y
+          sudo apt-get install doxygen=1.9.3 libx11-dev libxtst-dev -y
           mkdir build && cd build
           cmake ..
           cmake --build .
