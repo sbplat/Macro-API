@@ -1,0 +1,29 @@
+name: Deploy main
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install dependencies and build documentation
+        run: |
+          sudo apt-get install doxygen
+          mkdir build && cd build
+          cmake .. -DBUILD_EXAMPLES=OFF -DBUILD_TEST_SUITE=OFF -DBUILD_DOC=ON
+          cmake --build .
+
+      - name: Deploy documentation
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build/doc/html
+          clean-exclude: pr-preview

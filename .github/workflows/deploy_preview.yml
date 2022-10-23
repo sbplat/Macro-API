@@ -1,0 +1,32 @@
+name: Deploy preview
+
+concurrency: preview-${{ github.ref }}
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+jobs:
+  deploy-preview:
+    runs-on : ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install dependencies and build documentation
+        run: |
+          sudo apt-get install doxygen
+          mkdir build && cd build
+          cmake .. -DBUILD_EXAMPLES=OFF -DBUILD_TEST_SUITE=OFF -DBUILD_DOC=ON
+          cmake --build .
+
+      - name: Deploy documentation
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: build/doc/html
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
