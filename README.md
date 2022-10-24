@@ -29,15 +29,14 @@
 ## Planned Features
 
 * Mac and Linux support
-* More examples
-* Add documentation
+* More examples and documentation
 * More control over your keyboard and mouse
 * Image searching
 
 ## Building
 
 1. Clone this project.
-2. Build the Macro API using CMake.
+2. Build using CMake.
 ```batch
 mkdir build && cd build
 cmake ..
@@ -49,7 +48,7 @@ See our [Contributing Guidelines](CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the [BSD 3 license](LICENSE).
+This project is licensed under the [BSD 3-Clause License](LICENSE).
 
 # Our Amazing Contributors ❤️
 

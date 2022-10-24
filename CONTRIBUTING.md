@@ -14,8 +14,9 @@ Before opening an issue, please check to make sure someone hasn't already opened
 
 ## Pull Requests
 
-Once you've made changes, you can submit a Pull Request.
+Before you start working on an issue, please comment on the issue and wait for it to be assigned to you. This is to avoid multiple people working on the same issue.
 
+Once you have been assigned an issue, you can start working on it. When you are ready to submit your changes, open a pull request.
 For a detailed pull request tutorial, see [this guide](https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github).
 
 Please make sure your Pull Request adheres to the following guidelines:
@@ -33,3 +34,7 @@ Congratulations :tada::tada:
 Thanks for taking the time and effort to contribute to this project! :sparkles:
 
 We are excited to see your code in this project! :star2:
+
+## License
+
+By contributing to this project, you agree that your contributions will be licensed under its [BSD 3-Clause License](LICENSE).
