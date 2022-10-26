@@ -8,6 +8,6 @@ TEST_CASE("[mouse] move absolute") {
     INFO("Position x: ", actual.x);
     INFO("Position y: ", actual.y);
 
-    CHECK_EQ(expected_x, actual.x);
-    CHECK_EQ(expected_y, actual.y);
+    REQUIRE(expected_x == doctest::Approx(actual.x).epsilon(0.01));
+    REQUIRE(expected_y == doctest::Approx(actual.y).epsilon(0.01)); 
 }
