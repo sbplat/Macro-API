@@ -1,4 +1,4 @@
-TEST_CASE("[mouse] mouse movement absolute") {
+TEST_CASE("[mouse] move absolute") {
     int expected_x = 300;
     int expected_y = 300;
 
@@ -8,6 +8,6 @@ TEST_CASE("[mouse] mouse movement absolute") {
     INFO("Position x: ", actual.x);
     INFO("Position y: ", actual.y);
 
-    CHECK(expected_x == actual.x);
-    CHECK(expected_y == actual.y);
+    CHECK_EQ(expected_x, actual.x);
+    CHECK_EQ(expected_y, actual.y);
 }
