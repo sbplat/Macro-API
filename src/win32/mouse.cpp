@@ -14,6 +14,10 @@ Point GetPosition() {
 void MoveAbsolute(int x, int y) {
     // (0, 0) is the top left corner
     // (65535, 65535) is the bottom right corner
+
+    x = x * 65535 / GetDeviceCaps(GetDC(NULL), HORZRES);
+    y = y * 65535 / GetDeviceCaps(GetDC(NULL), VERTRES);
+
     INPUT input = {0};
     input.type = INPUT_MOUSE;
     input.mi.dx = x;
