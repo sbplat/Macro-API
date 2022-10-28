@@ -24,6 +24,10 @@ void SetCallback(KeyCallback callback) { Internal::keyCallback = callback; }
 
 const KeyStates &GetKeyStates() { return Internal::keyStates; }
 
+KeyState GetKeyState(Key key) {
+    return Internal::keyStates[key];
+}
+
 void Tap(Key key, int ms) {
     Down(key);
     Misc::Sleep(ms);
