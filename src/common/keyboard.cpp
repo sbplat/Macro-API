@@ -22,11 +22,9 @@ KeyCallback keyCallback = nullptr;
 
 void SetCallback(KeyCallback callback) { Internal::keyCallback = callback; }
 
-const KeyStates &GetKeyStates() { return Internal::keyStates; }
+KeyState GetKeyState(Key key) { return Internal::keyStates[key]; }
 
-KeyState GetKeyState(Key key) {
-    return Internal::keyStates[key];
-}
+const KeyStates &GetKeyStates() { return Internal::keyStates; }
 
 void Tap(Key key, int ms) {
     Down(key);
