@@ -22,6 +22,8 @@ KeyCallback keyCallback = nullptr;
 
 void SetCallback(KeyCallback callback) { Internal::keyCallback = callback; }
 
+KeyState GetKeyState(Key key) { return Internal::keyStates[key]; }
+
 const KeyStates &GetKeyStates() { return Internal::keyStates; }
 
 void Tap(Key key, int ms) {
