@@ -2,6 +2,8 @@
 
 #include "../platform.h"
 
+#include <cmath>
+
 namespace Macro {
 namespace Mouse {
 
@@ -16,8 +18,8 @@ void MoveAbsolute(int x, int y) {
     // (65535, 65535) is the bottom right corner
     INPUT input = {0};
     input.type = INPUT_MOUSE;
-    input.mi.dx = x;
-    input.mi.dy = y;
+    input.mi.dx = round(x * 65535.0 / GetDeviceCaps(GetDC(NULL), HORZRES));
+    input.mi.dy = round(y * 65535.0 / GetDeviceCaps(GetDC(NULL), VERTRES));
     input.mi.dwFlags = MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE;
     SendInput(1, &input, sizeof(INPUT));
 }
