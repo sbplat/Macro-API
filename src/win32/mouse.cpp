@@ -1,7 +1,8 @@
-#include <cmath>
 #include <macro/mouse.h>
 
 #include "../platform.h"
+
+#include <cmath>
 
 namespace Macro {
 namespace Mouse {
