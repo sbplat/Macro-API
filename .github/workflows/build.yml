@@ -67,6 +67,7 @@ jobs:
           submodules: true
 
       - name: Install dependencies and build
+        continue-on-error: true
         run: |
           sudo apt-get install doxygen libx11-dev libxtst-dev -y
           mkdir build && cd build
