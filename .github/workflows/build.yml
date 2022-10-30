@@ -34,8 +34,6 @@ jobs:
   build-macos:
     runs-on: macos-latest
 
-    continue-on-error: true # macOS support is still WIP
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -43,13 +41,14 @@ jobs:
           submodules: true
 
       - name: Install dependencies and build
+        continue-on-error: true
         run: |
           brew install doxygen
           mkdir build && cd build
           cmake ..
           cmake --build .
-          #cd test
-          #ctest -C Debug
+          cd test
+          ctest -C Debug
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -60,8 +59,6 @@ jobs:
 
   build-linux:
     runs-on: ubuntu-latest
-
-    continue-on-error: true # Linux support is still WIP
 
     steps:
       - name: Checkout repository
