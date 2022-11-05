@@ -9,6 +9,26 @@
 namespace Macro {
 namespace Mouse {
 
+Point MapToVirtualScreen(const Point &point) {
+#if NTDDI_VERSION >= NTDDI_WINBLUE
+    POINT pt = {point.x, point.y};
+
+    // Get the monitor that the cursor is on.
+    HMONITOR monitor = MonitorFromPoint(pt, MONITOR_DEFAULTTONEAREST);
+
+    // Obtain the scale factor for the monitor.
+    DEVICE_SCALE_FACTOR scale_factor;
+    GetScaleFactorForMonitor(monitor, &scale_factor);
+
+    // Convert to virtual screen pixels using the DPI of the monitor.
+    return {MulDiv(pt.x, 100, scale_factor), MulDiv(pt.y, 100, scale_factor)};
+#else
+    // Early versions of Windows don't support per-monitor DPI awareness.
+    // We'll just assume 100% scaling.
+    return point;
+#endif
+}
+
 LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
     MSLLHOOKSTRUCT *mouse = reinterpret_cast<MSLLHOOKSTRUCT *>(lParam);
 
@@ -17,7 +37,7 @@ LRESULT CALLBACK LowLevelMouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
         bool shouldBlock = false;
 
         if (wParam == WM_MOUSEMOVE) {
-            Point point{mouse->pt.x, mouse->pt.y};
+            Point point = MapToVirtualScreen({mouse->pt.x, mouse->pt.y});
 
             if (Internal::MoveCb(point)) {
                 return 1;

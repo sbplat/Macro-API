@@ -2,6 +2,7 @@
 #define _platform_h_
 
 #if defined(_MACRO_WIN32)
+    #include <shellscalingapi.h>
     #include <windows.h>
 #elif defined(_MACRO_COCOA)
     #warning "Macro API for Cocoa is still WIP"
