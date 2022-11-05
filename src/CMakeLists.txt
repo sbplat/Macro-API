@@ -15,6 +15,23 @@ add_library(
 
 if(WIN32)
     message(STATUS "Detected platform: Windows")
+    if(${CMAKE_SYSTEM_VERSION} MATCHES "^10") # Windows 10
+        add_definitions(-D_WIN32_WINNT=0x0A00) # _WIN32_WINNT_WIN10
+    elseif(${CMAKE_SYSTEM_VERSION} MATCHES "^6.3") # Windows 8.1
+        add_definitions(-D_WIN32_WINNT=0x0603) # _WIN32_WINNT_WINBLUE
+    elseif(${CMAKE_SYSTEM_VERSION} MATCHES "^6.2") # Windows 8
+        add_definitions(-D_WIN32_WINNT=0x0602) # _WIN32_WINNT_WIN8
+    elseif(${CMAKE_SYSTEM_VERSION} MATCHES "^6.1") # Windows 7
+        add_definitions(-D_WIN32_WINNT=0x0601) # _WIN32_WINNT_WIN7
+    elseif(${CMAKE_SYSTEM_VERSION} MATCHES "^6.0") # Windows Vista
+        add_definitions(-D_WIN32_WINNT=0x0600) # _WIN32_WINNT_VISTA
+    elseif(${CMAKE_SYSTEM_VERSION} MATCHES "^5.2") # Windows Server 2003
+        add_definitions(-D_WIN32_WINNT=0x0502) # _WIN32_WINNT_WS03
+    elseif(${CMAKE_SYSTEM_VERSION} MATCHES "^5.1") # Windows XP
+        add_definitions(-D_WIN32_WINNT=0x0501) # _WIN32_WINNT_WINXP
+    elseif(${CMAKE_SYSTEM_VERSION} MATCHES "^5.0") # Windows 2000
+        add_definitions(-D_WIN32_WINNT=0x0500) # _WIN32_WINNT_WIN2K
+    endif()
     target_compile_definitions(macro PRIVATE _MACRO_WIN32)
     target_sources(
         macro
@@ -69,7 +86,7 @@ set_target_properties(
 )
 
 if(WIN32)
-    # empty
+    target_link_libraries(macro PRIVATE shcore)
 elseif(APPLE)
     target_link_libraries(macro PRIVATE Threads::Threads)
 elseif(UNIX)
