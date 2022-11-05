@@ -11,7 +11,9 @@ namespace Macro {
 
 class _Context {
 #if defined(_MACRO_WIN32)
-
+  public:
+    _Context();
+    ~_Context();
 #elif defined(_MACRO_COCOA)
 
 #elif defined(_MACRO_X11)

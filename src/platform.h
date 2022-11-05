@@ -3,6 +3,7 @@
 
 #if defined(_MACRO_WIN32)
     #include <windows.h>
+    #include <winuser.h>
 #elif defined(_MACRO_COCOA)
     #warning "Macro API for Cocoa is still WIP"
     #include <ApplicationServices/ApplicationServices.h>
