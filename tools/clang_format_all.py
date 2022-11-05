@@ -2,7 +2,7 @@ import pathlib
 import subprocess
 
 clang_format = "clang-format"
-exclude = ["../build", "../test/doctest.h"]
+exclude = ["../build", "../doc", "../test/doctest.h"]
 extensions = [".cpp", ".hpp", ".h", ".c", ".cc", ".hh", ".cxx", ".hxx"]
 
 
