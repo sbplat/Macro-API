@@ -58,6 +58,8 @@ void SetButtonCallback(ButtonCallback callback) { Internal::buttonCallback = cal
 
 void SetScrollCallback(ScrollCallback callback) { Internal::scrollCallback = callback; }
 
+ButtonState GetButtonState(Button button) { return Internal::buttonStates[button]; }
+
 const ButtonStates &GetButtonStates() { return Internal::buttonStates; }
 
 void Click(Button button, int ms) {
