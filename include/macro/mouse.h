@@ -9,6 +9,14 @@ namespace Macro {
 namespace Mouse {
 
 enum Button { LEFT, RIGHT, MIDDLE, X1, X2 };
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Get the button name of a button as a string.
+///
+/// \param button The button to get the name of.
+/// \exception std::runtime_error Thrown if the button is invalid.
+/// \return The button name of the specified button as a string.
+///////////////////////////////////////////////////////////////////////////////
 std::string GetButtonName(Button button);
 
 enum ButtonState { UP, DOWN };
