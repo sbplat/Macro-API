@@ -35,6 +35,13 @@ struct Combo {
     bool alt;
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Get the key name of a key as a string.
+///
+/// \param key The key to get the name of.
+/// \exception std::runtime_error Thrown if the key is invalid.
+/// \return The key name of the specified key as a string.
+///////////////////////////////////////////////////////////////////////////////
 std::string GetKeyName(Key key);
 int MapToOSKey(Key key);
 Key MapFromOSKey(int osKey);
