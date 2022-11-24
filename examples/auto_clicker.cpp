@@ -24,14 +24,13 @@ int main() {
               << "Press Ctrl+C to exit." << std::endl;
 
     while (true) {
-        // Get the current mouse button states.
-        const Macro::Mouse::ButtonStates &buttonStates = Macro::Mouse::GetButtonStates();
-
-        // We create two variables that store the state of the X1 and X2 buttons.
+        // Get the current X1 and X2 mouse button states and store them in variables.
         // This is to ensure that the clicker releases the button even if the user releases their
         // X1 or X2 mouse button.
-        bool x1Pressed = (buttonStates[Macro::Mouse::X1] == Macro::Mouse::ButtonState::DOWN);
-        bool x2Pressed = (buttonStates[Macro::Mouse::X2] == Macro::Mouse::ButtonState::DOWN);
+        bool x1Pressed = Macro::Mouse::GetButtonState(Macro::Mouse::Button::X1) ==
+                         Macro::Mouse::ButtonState::DOWN;
+        bool x2Pressed = Macro::Mouse::GetButtonState(Macro::Mouse::Button::X2) ==
+                         Macro::Mouse::ButtonState::DOWN;
 
         if (x1Pressed) {
             // Press the left mouse button.
