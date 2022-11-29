@@ -1,34 +1,29 @@
 #include <map>
 
+#define CHECK_KEY_COMBO(ch, expected_key, expected_shift, expected_ctrl, expected_alt)             \
+    {                                                                                              \
+        INFO("Char: ", ch);                                                                        \
+        Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(ch);                           \
+        CHECK_EQ(combo.key, expected_key);                                                         \
+        CHECK_EQ(combo.shift, expected_shift);                                                     \
+        CHECK_EQ(combo.ctrl, expected_ctrl);                                                       \
+        CHECK_EQ(combo.alt, expected_alt);                                                         \
+    }
+
 TEST_CASE("[keyboard] map from char") {
     INFO("Lowercase");
     for (char c = 'a'; c <= 'z'; ++c) {
-        INFO("Char: ", c);
-        Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(combo.key - Macro::Keyboard::Key::A, c - 'a');
-        CHECK_EQ(combo.shift, false);
-        CHECK_EQ(combo.ctrl, false);
-        CHECK_EQ(combo.alt, false);
+        CHECK_KEY_COMBO(c, c - 'a' + Macro::Keyboard::Key::A, false, false, false);
     }
 
     INFO("Uppercase");
     for (char c = 'A'; c <= 'Z'; ++c) {
-        INFO("Char: ", c);
-        Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(combo.key - Macro::Keyboard::Key::A, c - 'A');
-        CHECK_EQ(combo.shift, true);
-        CHECK_EQ(combo.ctrl, false);
-        CHECK_EQ(combo.alt, false);
+        CHECK_KEY_COMBO(c, c - 'A' + Macro::Keyboard::Key::A, true, false, false);
     }
 
     INFO("Numbers");
     for (char c = '0'; c <= '9'; ++c) {
-        INFO("Char: ", c);
-        Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(combo.key - Macro::Keyboard::Key::ZERO, c - '0');
-        CHECK_EQ(combo.shift, false);
-        CHECK_EQ(combo.ctrl, false);
-        CHECK_EQ(combo.alt, false);
+        CHECK_KEY_COMBO(c, c - '0' + Macro::Keyboard::Key::ZERO, false, false, false);
     }
 
     INFO("Symbols (unshifted)");
@@ -50,12 +45,7 @@ TEST_CASE("[keyboard] map from char") {
     for (auto &pair : unshifted_symbols) {
         char c = pair.first;
         Macro::Keyboard::Key key = pair.second;
-        INFO("Char: ", c);
-        Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(combo.key, key);
-        CHECK_EQ(combo.shift, false);
-        CHECK_EQ(combo.ctrl, false);
-        CHECK_EQ(combo.alt, false);
+        CHECK_KEY_COMBO(c, key, false, false, false);
     }
 
     INFO("Symbols (shifted)");
@@ -87,12 +77,7 @@ TEST_CASE("[keyboard] map from char") {
     for (auto &pair : shifted_symbols) {
         char c = pair.first;
         Macro::Keyboard::Key key = pair.second;
-        INFO("Char: ", c);
-        Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(combo.key, key);
-        CHECK_EQ(combo.shift, true);
-        CHECK_EQ(combo.ctrl, false);
-        CHECK_EQ(combo.alt, false);
+        CHECK_KEY_COMBO(c, key, true, false, false);
     }
 
     INFO("Special keys");
@@ -108,11 +93,8 @@ TEST_CASE("[keyboard] map from char") {
     for (auto &pair : special_keys) {
         char c = pair.first;
         Macro::Keyboard::Key key = pair.second;
-        INFO("Char: ", c);
-        Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(combo.key, key);
-        CHECK_EQ(combo.shift, false);
-        CHECK_EQ(combo.ctrl, false);
-        CHECK_EQ(combo.alt, false);
+        CHECK_KEY_COMBO(c, key, false, false, false);
     }
 }
+
+#undef CHECK_KEY_COMBO
