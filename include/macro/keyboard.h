@@ -84,6 +84,27 @@ int MapToOSKey(Key key);
 ///
 /// \return The key of the specified OS-specific key code.
 Key MapFromOSKey(int osKey);
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Map a character to a key and modifiers.
+///
+/// This function maps a character to a key and modifiers - shift, control, and
+/// alt. The key and modifiers are the ones that would be used to type the
+/// given character on a standard US keyboard.
+///
+/// Example (win32):
+/// \code
+/// Combo combo = MapFromChar('!');
+/// // combo.key = Key::ONE
+/// // combo.shift = true
+/// // combo.ctrl = false
+/// // combo.alt = false
+/// \endcode
+///
+/// \param c The character to map to a key and modifiers.
+/// \exception std::runtime_error Thrown if the character cannot be mapped.
+///
+/// \return The key and modifiers of the specified character as a Combo.
 Combo MapFromChar(char c);
 
 enum KeyState { UP, DOWN };
