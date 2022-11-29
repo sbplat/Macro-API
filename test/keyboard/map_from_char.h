@@ -2,7 +2,7 @@
 #include <map>
 
 TEST_CASE("[keyboard] map from char") {
-    // lowercase
+    INFO("Lowercase");
     for (char c = 'a'; c <= 'z'; ++c) {
         INFO("Char: ", c);
         Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
@@ -12,7 +12,7 @@ TEST_CASE("[keyboard] map from char") {
         CHECK_EQ(combo.alt, false);
     }
 
-    // uppercase
+    INFO("Uppercase");
     for (char c = 'A'; c <= 'Z'; ++c) {
         INFO("Char: ", c);
         Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
@@ -22,7 +22,7 @@ TEST_CASE("[keyboard] map from char") {
         CHECK_EQ(combo.alt, false);
     }
 
-    // numbers
+    INFO("Numbers");
     for (char c = '0'; c <= '9'; ++c) {
         INFO("Char: ", c);
         Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
@@ -32,7 +32,7 @@ TEST_CASE("[keyboard] map from char") {
         CHECK_EQ(combo.alt, false);
     }
 
-    // symbols (unshifted)
+    INFO("Symbols (unshifted)");
     std::map<char, Macro::Keyboard::Key> unshifted_symbols = {
         // clang-format off
         {';', Macro::Keyboard::Key::COLON},
@@ -59,7 +59,7 @@ TEST_CASE("[keyboard] map from char") {
         CHECK_EQ(combo.alt, false);
     }
 
-    // symbols (shifted)
+    INFO("Symbols (shifted)");
     std::map<char, Macro::Keyboard::Key> shifted_symbols = {
         // clang-format off
         {'!', Macro::Keyboard::Key::ONE},
@@ -96,7 +96,7 @@ TEST_CASE("[keyboard] map from char") {
         CHECK_EQ(combo.alt, false);
     }
 
-    // special keys
+    INFO("Special keys");
     std::map<char, Macro::Keyboard::Key> special_keys = {
         // clang-format off
         {'\b', Macro::Keyboard::Key::BACKSPACE},
