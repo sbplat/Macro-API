@@ -1,12 +1,11 @@
 #include <map>
-#include <string>
 
 TEST_CASE("[keyboard] map from char") {
     INFO("Lowercase");
     for (char c = 'a'; c <= 'z'; ++c) {
         INFO("Char: ", c);
         Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(Macro::Keyboard::GetKeyName(combo.key), std::string(1, c - 'a' + 'A'));
+        CHECK_EQ(combo.key - Macro::Keyboard::Key::A, c - 'a');
         CHECK_EQ(combo.shift, false);
         CHECK_EQ(combo.ctrl, false);
         CHECK_EQ(combo.alt, false);
@@ -16,7 +15,7 @@ TEST_CASE("[keyboard] map from char") {
     for (char c = 'A'; c <= 'Z'; ++c) {
         INFO("Char: ", c);
         Macro::Keyboard::Combo combo = Macro::Keyboard::MapFromChar(c);
-        CHECK_EQ(Macro::Keyboard::GetKeyName(combo.key), std::string(1, c));
+        CHECK_EQ(combo.key - Macro::Keyboard::Key::A, c - 'A');
         CHECK_EQ(combo.shift, true);
         CHECK_EQ(combo.ctrl, false);
         CHECK_EQ(combo.alt, false);
