@@ -49,7 +49,40 @@ struct Combo {
 /// \return The key name of the specified key as a string.
 ///////////////////////////////////////////////////////////////////////////////
 std::string GetKeyName(Key key);
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Map a key to the OS-specific key code.
+///
+/// The OS-specific key code is different for each OS. This function maps the
+/// key to the OS-specific key code. The OS used is determined by CMake.
+///
+/// Example (win32):
+/// \code
+/// int osKey = MapToOSKey(Key::BACKSPACE);  // osKey = VK_BACK (0x08)
+/// \endcode
+///
+/// \param key The key to map to the OS-specific key code.
+/// \exception std::runtime_error Thrown if the key is invalid.
+///
+/// \return The OS-specific key code of the specified key.
+///////////////////////////////////////////////////////////////////////////////
 int MapToOSKey(Key key);
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Map an OS-specific key code to a key.
+///
+/// The OS-specific key code is different for each OS. This function maps the
+/// OS-specific key code to a key. The OS used is determined by CMake.
+///
+/// Example (win32):
+/// \code
+/// Key key = MapFromOSKey(VK_BACK);  // key = Key::BACKSPACE
+/// \endcode
+///
+/// \param osKey The OS-specific key code to map to a key.
+/// \exception std::runtime_error Thrown if the OS-specific key code is invalid.
+///
+/// \return The key of the specified OS-specific key code.
 Key MapFromOSKey(int osKey);
 Combo MapFromChar(char c);
 
