@@ -87,7 +87,7 @@ TEST_CASE("[keyboard] map from char") {
         {'\t', Macro::Keyboard::Key::TAB},
         {'\r', Macro::Keyboard::Key::ENTER},
         {' ', Macro::Keyboard::Key::SPACE},
-        {'\e', Macro::Keyboard::Key::ESCAPE},
+        {'\x1B', Macro::Keyboard::Key::ESCAPE},
         // clang-format on
     };
     for (auto &pair : special_keys) {
