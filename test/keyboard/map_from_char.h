@@ -1,5 +1,5 @@
-#include <cctype>
 #include <map>
+#include <string>
 
 TEST_CASE("[keyboard] map from char") {
     INFO("Lowercase");
