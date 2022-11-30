@@ -25,7 +25,15 @@ enum Button { LEFT, RIGHT, MIDDLE, X1, X2 };
 ///////////////////////////////////////////////////////////////////////////////
 std::string GetButtonName(Button button);
 
-enum ButtonState { UP, DOWN };
+///////////////////////////////////////////////////////////////////////////////
+/// \brief The state of a mouse button.
+///
+/// This enum represents the state of a mouse button.
+///////////////////////////////////////////////////////////////////////////////
+enum ButtonState {
+    UP,   ///< The button is released.
+    DOWN  ///< The button is pressed.
+};
 
 struct Point {
     int x;
