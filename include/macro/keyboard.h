@@ -107,7 +107,15 @@ Key MapFromOSKey(int osKey);
 /// \return The key and modifiers of the specified character as a Combo.
 Combo MapFromChar(char c);
 
-enum KeyState { UP, DOWN };
+///////////////////////////////////////////////////////////////////////////////
+/// \brief The state of a key.
+///
+/// This enum represents the state of a keybord key.
+///////////////////////////////////////////////////////////////////////////////
+enum KeyState {
+    UP,   ///< The key is released.
+    DOWN  ///< The key is pressed.
+};
 
 typedef States<KeyState, Key, Key::QUOTE + 1> KeyStates;
 
