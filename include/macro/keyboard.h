@@ -28,11 +28,17 @@ enum Key {
     // clang-format on
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// \brief A combination of a \ref Key and the state of modifier keys.
+///
+/// This struct is used to represent a combination of a \ref Key and the state
+/// of modifier keys (shift, ctrl, and alt).
+///////////////////////////////////////////////////////////////////////////////
 struct Combo {
-    Key key;
-    bool shift;
-    bool ctrl;
-    bool alt;
+    Key key;     ///< The \ref Key.
+    bool shift;  ///< Whether the shift key is pressed.
+    bool ctrl;   ///< Whether the ctrl key is pressed.
+    bool alt;    ///< Whether the alt key is pressed.
 };
 
 ///////////////////////////////////////////////////////////////////////////////
