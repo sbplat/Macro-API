@@ -170,6 +170,20 @@ typedef bool (*KeyCallback)(Key key, KeyState state);
 /// function.
 ///////////////////////////////////////////////////////////////////////////////
 void SetCallback(KeyCallback callback);  // common
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Start the keyboard hook loop.
+///
+/// This function starts the keyboard hook loop. The loop calls the key
+/// callback function whenever a keyboard event is triggered. It is recommended
+/// to spawn a new thread, and call this function in the new thread, as the
+/// function blocks the thread that it is called in. This function never
+/// returns, so it should only be called once.
+///
+/// \see KeyCallback
+/// \see SetCallback
+/// \see examples/keyboard_hook.cpp An example of starting the keyboard hook
+///////////////////////////////////////////////////////////////////////////////
 void KeyboardHookLoop();
 
 // State
