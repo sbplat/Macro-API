@@ -135,9 +135,40 @@ enum KeyState {
 ///////////////////////////////////////////////////////////////////////////////
 typedef States<KeyState, Key, Key::QUOTE + 1> KeyStates;
 
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Key callback function type.
+///
+/// This type is used to represent a key callback function. The callback should
+/// return as quickly as possible, as it blocks the system thread that handles
+/// keyboard input.
+///
+/// \param key The \ref Key that triggered the callback.
+/// \param state The current \ref KeyState of the key.
+///
+/// \return Whether the event should be cancelled. If `true`, the event will be
+/// cancelled. If `false`, the event will be passed to the next callback
+/// handler.
+///
+/// \see examples/keyboard_hook.cpp An example of a key callback function.
+///////////////////////////////////////////////////////////////////////////////
 typedef bool (*KeyCallback)(Key key, KeyState state);
 
 // Events
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Set the key callback function.
+///
+/// This function sets the key callback function. The callback function must
+/// be of type \ref KeyCallback. The callback function is called whenever a
+/// keyboard event is triggered (pressing or releasing a key).
+///
+/// \param callback The key callback function. If a callback function already
+/// exists, it will be replaced. If the callback function is set to `nullptr`,
+/// no callback function will be called.
+///
+/// \see KeyCallback
+/// \see examples/keyboard_hook.cpp An example of setting the key callback
+/// function.
+///////////////////////////////////////////////////////////////////////////////
 void SetCallback(KeyCallback callback);  // common
 void KeyboardHookLoop();
 
