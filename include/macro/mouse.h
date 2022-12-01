@@ -40,6 +40,16 @@ struct Point {
     int y;
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// \brief The state of all mouse buttons.
+///
+/// ButtonStates is a wrapper around the \ref States class. It is used to
+/// represent the state of all buttons at a certain point in time. The state of
+/// a button can be accessed or modified using the subscript operator with a
+/// \ref Button as the index.
+///
+/// \see States
+///////////////////////////////////////////////////////////////////////////////
 typedef States<ButtonState, Button, Button::X2 + 1> ButtonStates;
 
 typedef bool (*MoveCallback)(Point position);

@@ -117,6 +117,16 @@ enum KeyState {
     DOWN  ///< The key is pressed.
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// \brief The state of all keys.
+///
+/// KeyStates is a wrapper around the \ref States class. It is used to
+/// represent the state of all keys at a certain point in time. The state of a
+/// key can be accessed or modified using the subscript operator with a
+/// \ref Key as the index.
+///
+/// \see States
+///////////////////////////////////////////////////////////////////////////////
 typedef States<KeyState, Key, Key::QUOTE + 1> KeyStates;
 
 typedef bool (*KeyCallback)(Key key, KeyState state);
