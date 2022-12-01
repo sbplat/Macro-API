@@ -11,22 +11,22 @@ namespace Mouse {
 enum Button { LEFT, RIGHT, MIDDLE, X1, X2 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \brief Get the button name of a button as a string.
+/// \brief Get the button name of a \ref Button as a std::string.
 ///
 /// Example:
 /// \code
 /// std::string name = GetButtonName(Button::LEFT);  // name = "LEFT"
 /// \endcode
 ///
-/// \param button The button to get the name of.
-/// \exception std::runtime_error Thrown if the button is invalid.
+/// \param button The \ref Button to get the name of.
+/// \exception std::runtime_error Thrown if the \ref Button is invalid.
 ///
-/// \return The button name of the specified button as a string.
+/// \return The button name of the specified \ref Button as a std::string.
 ///////////////////////////////////////////////////////////////////////////////
 std::string GetButtonName(Button button);
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \brief The state of a mouse button.
+/// \brief The state of a mouse \ref Button.
 ///
 /// This enum represents the state of a mouse button.
 ///////////////////////////////////////////////////////////////////////////////
