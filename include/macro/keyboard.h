@@ -36,61 +36,61 @@ struct Combo {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \brief Get the key name of a key as a string.
+/// \brief Get the key name of a \ref Key as a std::string.
 ///
 /// Example:
 /// \code
 /// std::string name = GetKeyName(Key::CAPS_LOCK);  // name = "CAPS_LOCK"
 /// \endcode
 ///
-/// \param key The key to get the name of.
-/// \exception std::runtime_error Thrown if the key is invalid.
+/// \param key The \ref Key to get the name of.
+/// \exception std::runtime_error Thrown if the \ref Key is invalid.
 ///
-/// \return The key name of the specified key as a string.
+/// \return The key name of the specified \ref Key as a std::string.
 ///////////////////////////////////////////////////////////////////////////////
 std::string GetKeyName(Key key);
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \brief Map a key to the OS-specific key code.
+/// \brief Map a \ref Key to the OS-specific key code.
 ///
 /// The OS-specific key code is different for each OS. This function maps the
-/// key to the OS-specific key code. The OS used is determined by CMake.
+/// \ref Key to the OS-specific key code. The OS used is determined by CMake.
 ///
 /// Example (win32):
 /// \code
 /// int osKey = MapToOSKey(Key::BACKSPACE);  // osKey = VK_BACK (0x08)
 /// \endcode
 ///
-/// \param key The key to map to the OS-specific key code.
-/// \exception std::runtime_error Thrown if the key is invalid.
+/// \param key The \ref Key to map to the OS-specific key code.
+/// \exception std::runtime_error Thrown if the \ref Key is invalid.
 ///
-/// \return The OS-specific key code of the specified key.
+/// \return The OS-specific key code of the specified key as an int.
 ///////////////////////////////////////////////////////////////////////////////
 int MapToOSKey(Key key);
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \brief Map an OS-specific key code to a key.
+/// \brief Map an OS-specific key code to a \ref Key.
 ///
 /// The OS-specific key code is different for each OS. This function maps the
-/// OS-specific key code to a key. The OS used is determined by CMake.
+/// OS-specific key code to a \ref Key. The OS used is determined by CMake.
 ///
 /// Example (win32):
 /// \code
 /// Key key = MapFromOSKey(VK_BACK);  // key = Key::BACKSPACE
 /// \endcode
 ///
-/// \param osKey The OS-specific key code to map to a key.
+/// \param osKey The OS-specific key code to map to a \ref Key.
 /// \exception std::runtime_error Thrown if the OS-specific key code is invalid.
 ///
-/// \return The key of the specified OS-specific key code.
+/// \return The key code of the specified OS-specific key code.
 Key MapFromOSKey(int osKey);
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \brief Map a character to a key and modifiers.
+/// \brief Map a character to a \ref Combo.
 ///
-/// This function maps a character to a key and modifiers - shift, control, and
-/// alt. The key and modifiers are the ones that would be used to type the
-/// given character on a standard US keyboard.
+/// This function maps a character to a \ref Combo. The key and modifiers of
+/// the \ref Combo are the ones that would be used to type the given character
+/// on a standard US keyboard.
 ///
 /// Example (win32):
 /// \code
@@ -101,14 +101,14 @@ Key MapFromOSKey(int osKey);
 /// // combo.alt = false
 /// \endcode
 ///
-/// \param c The character to map to a key and modifiers.
+/// \param c The character to map to a \ref Combo.
 /// \exception std::runtime_error Thrown if the character cannot be mapped.
 ///
-/// \return The key and modifiers of the specified character as a Combo.
+/// \return The \ref Combo that would be used to type the given character.
 Combo MapFromChar(char c);
 
 ///////////////////////////////////////////////////////////////////////////////
-/// \brief The state of a key.
+/// \brief The state of a \ref Key.
 ///
 /// This enum represents the state of a keybord key.
 ///////////////////////////////////////////////////////////////////////////////
