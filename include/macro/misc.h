@@ -9,6 +9,11 @@ namespace Misc {
 ///
 /// This function is a wrapper around std::this_thread::sleep_for.
 ///
+/// Example:
+/// \code
+/// Sleep(1000);  // Block the current thread for 1 second.
+/// \endcode
+///
 /// \param ms The number of milliseconds to block the current thread for.
 ///////////////////////////////////////////////////////////////////////////////
 void Sleep(int ms);  // common
@@ -19,6 +24,11 @@ void Sleep(int ms);  // common
 /// This function is very accurate, but also expensive. It utilizes the Sleep
 /// function when the specified time is greater than 50ms and spin waits for
 /// the remaining time. The accuracy is normally within 1ms.
+///
+/// Example:
+/// \code
+/// PreciseSleep(1000);  // Block the current thread for 1 second.
+/// \endcode
 ///
 /// \param ms The number of milliseconds to block the current thread for.
 ///////////////////////////////////////////////////////////////////////////////
