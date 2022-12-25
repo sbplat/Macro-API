@@ -200,9 +200,17 @@ void KeyboardHookLoop();
 /// \brief Get the \ref KeyState of a single \ref Key.
 ///
 /// This function gets the \ref KeyState of a \ref Key. The internal key state
-/// cache is only updated when a keyboard event is triggered, so a key may not
-/// be in the correct state if the \ref KeyboardHookLoop has recently been
-/// started.
+/// relies on the \ref KeyboardHookLoop, so it may not be accurate if it has
+/// recently been started. Also, virtually simulated key presses are not taken
+/// into account (the events must be triggered by the user).
+///
+/// Example:
+/// \code
+/// // User presses the A key.
+/// KeyState state = GetKeyState(Key::A);  // state = KeyState::DOWN
+/// // User releases the A key.
+/// state = GetKeyState(Key::A);  // state = KeyState::UP
+/// \endcode
 ///
 /// \param key The \ref Key to get the \ref KeyState of.
 ///
@@ -215,9 +223,19 @@ KeyState GetKeyState(Key key);  // common
 ///////////////////////////////////////////////////////////////////////////////
 /// \brief Get the \ref KeyStates of all keys.
 ///
-/// This function gets the \ref KeyStates of all keys. The key states may not
-/// be in the correct state if the \ref KeyboardHookLoop has recently been
-/// started (see \ref GetKeyState for more information).
+/// This function gets the \ref KeyStates of all keys (see \ref GetKeyState for
+/// more information). Keep in mind that the \ref KeyStates returned by this
+/// function is a reference to the internal \ref KeyStates, so it will be
+/// updated whenever a key event is triggered.
+///
+/// Example:
+/// \code
+/// const KeyStates& states = GetKeyStates();  // Get the key states.
+/// // User presses the A key.
+/// KeyState state = states[Key::A];  // state = KeyState::DOWN
+/// // User releases the A key.
+/// state = states[Key::A];  // state = KeyState::UP
+/// \endcode
 ///
 /// \return The \ref KeyStates of all keys.
 ///
