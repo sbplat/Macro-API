@@ -8,6 +8,15 @@
 namespace Macro {
 namespace Keyboard {
 
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Enumeration of standard virtual key codes.
+///
+/// This enumeration contains all standard virtual key codes that can be used
+/// to represent the keys in a platform-agnotic way.
+///
+/// \see MapToOSKey Map a virtual key code to a platform-specific key code.
+/// \see MapFromOSKey Map a platform-specific key code to a virtual key code.
+///////////////////////////////////////////////////////////////////////////////
 enum Key {
     // clang-format off
     BACKSPACE, TAB,
