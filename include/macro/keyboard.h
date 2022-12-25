@@ -244,7 +244,38 @@ KeyState GetKeyState(Key key);  // common
 const KeyStates &GetKeyStates();  // common
 
 // Commands
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Press a \ref Key.
+///
+/// This function presses a \ref Key. The key is only pressed down and is not
+/// released until the \ref Up function is called with the same \ref Key. To
+/// press and release a key automatically, use the \ref Tap function.
+///
+/// Example:
+/// \code
+/// Down(Key::A);  // Press the A key.
+/// \endcode
+///
+/// \param key The \ref Key to press.
+///
+/// \see Up
+///////////////////////////////////////////////////////////////////////////////
 void Down(Key key);
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Release a \ref Key.
+///
+/// This function releases a \ref Key.
+///
+/// Example:
+/// \code
+/// Up(Key::A);  // Release the A key.
+/// \endcode
+///
+/// \param key The \ref Key to release.
+///
+/// \see Down
+///////////////////////////////////////////////////////////////////////////////
 void Up(Key key);
 void Tap(Key key, int ms = 10);                   // common
 void Type(const std::string &text, int ms = 10);  // common
