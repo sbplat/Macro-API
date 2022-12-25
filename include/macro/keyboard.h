@@ -196,7 +196,33 @@ void SetCallback(KeyCallback callback);  // common
 void KeyboardHookLoop();
 
 // State
-KeyState GetKeyState(Key key);    // common
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Get the \ref KeyState of a single \ref Key.
+///
+/// This function gets the \ref KeyState of a \ref Key. The internal key state
+/// cache is only updated when a keyboard event is triggered, so a key may not
+/// be in the correct state if the \ref KeyboardHookLoop has recently been
+/// started.
+///
+/// \param key The \ref Key to get the \ref KeyState of.
+///
+/// \return The \ref KeyState of the specified \ref Key.
+///
+/// \see GetKeyStates
+///////////////////////////////////////////////////////////////////////////////
+KeyState GetKeyState(Key key);  // common
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Get the \ref KeyStates of all keys.
+///
+/// This function gets the \ref KeyStates of all keys. The key states may not
+/// be in the correct state if the \ref KeyboardHookLoop has recently been
+/// started (see \ref GetKeyState for more information).
+///
+/// \return The \ref KeyStates of all keys.
+///
+/// \see GetKeyState
+///////////////////////////////////////////////////////////////////////////////
 const KeyStates &GetKeyStates();  // common
 
 // Commands
