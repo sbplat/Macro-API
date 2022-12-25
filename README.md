@@ -13,7 +13,7 @@
 <p align="center">
   <a href="#features">Features</a> •
   <a href="#planned-features">Planned Features</a> •
-  <a href="#building">Building</a> •
+  <a href="#usage">Usage</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#license">License</a>
 </p>
@@ -23,7 +23,7 @@
 * Cross platform (only Windows at the moment)
 * Easy to use
 * Full keyboard and mouse control
-* Get keyboard and mouse states (in progress)
+* Get keyboard and mouse states
 * Open source
 
 ## Planned Features
@@ -33,15 +33,30 @@
 * More control over your keyboard and mouse
 * Image searching
 
-## Building
+## Usage
 
-1. Clone this project.
-2. Build using CMake.
-```batch
-mkdir build && cd build
-cmake ..
-cmake --build .
+Integrate using CMake:
+```cmake
+include(FetchContent)
+FetchContent_Declare(
+    macro
+    GIT_REPOSITORY https://github.com/sbplat/Macro-API.git
+    GIT_TAG main  # or whatever tag/commit you want to use
+)
+FetchContent_MakeAvailable(macro)
+
+include_directories(${macro_SOURCE_DIR}/include)
+# Add your source files here (ex. add_executable(${PROJECT_NAME} main.cpp))
+target_link_libraries(${PROJECT_NAME} macro)
 ```
+
+Then, in your code:
+```cpp
+#include <macro/macro.h>  // Namespace: Macro
+```
+
+Refer to the [examples](examples) and documentation for a more in-depth look at how to use the API.
+
 ## Contributing
 
 See our [Contributing Guidelines](CONTRIBUTING.md).
