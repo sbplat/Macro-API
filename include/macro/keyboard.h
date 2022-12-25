@@ -277,6 +277,26 @@ void Down(Key key);
 /// \see Down
 ///////////////////////////////////////////////////////////////////////////////
 void Up(Key key);
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Press and release a \ref Key.
+///
+/// This function presses and releases a \ref Key. The key is pressed down for
+/// `ms` milliseconds, and then released. Use the \ref Down and \ref Up
+/// functions to press and release a key manually.
+///
+/// Example:
+/// \code
+/// Tap(Key::A);  // Press and release the A key for the default time (10 ms).
+/// Tap(Key::A, 100);  // Press and release the A key for 100 ms.
+/// \endcode
+///
+/// \param key The \ref Key to press and release.
+/// \param ms The time to press the key for, in milliseconds.
+///
+/// \see Down
+/// \see Up
+///////////////////////////////////////////////////////////////////////////////
 void Tap(Key key, int ms = 10);                   // common
 void Type(const std::string &text, int ms = 10);  // common
 
