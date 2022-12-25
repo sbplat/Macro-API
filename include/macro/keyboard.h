@@ -297,7 +297,32 @@ void Up(Key key);
 /// \see Down
 /// \see Up
 ///////////////////////////////////////////////////////////////////////////////
-void Tap(Key key, int ms = 10);                   // common
+void Tap(Key key, int ms = 10);  // common
+
+///////////////////////////////////////////////////////////////////////////////
+/// \brief Type a string.
+///
+/// This function types a string. The string is typed character by character,
+/// with a delay of `ms` milliseconds between each press and release, and
+/// between each character. Each character in the string is converted to a
+/// \ref Combo, and then the combo is pressed and released.
+///
+/// Example:
+/// \code
+/// Type("Hello, world!");  // Type "Hello, world!" with the default time of
+///                         // 10 ms.
+/// Type("Hello, world!", 100);  // Type "Hello, world!" with 100 ms between
+///                              // each press and release, and between each
+///                              // character.
+/// \endcode
+///
+/// \param text The string to type.
+/// \param ms The time to press and release each key for and between each
+/// character, in milliseconds.
+///
+/// \see MapFromChar
+/// \see Combo
+///////////////////////////////////////////////////////////////////////////////
 void Type(const std::string &text, int ms = 10);  // common
 
 }  // namespace Keyboard
